@@ -1,7 +1,7 @@
 .card{isolation:isolate}
-.card:global(.program-card) > :global(.photo){transition:transform 650ms cubic-bezier(.2,.65,.3,1),filter 650ms ease;transform:scale(1);will-change:auto}
-.card:global(.program-card):hover > :global(.photo),.card:global(.program-card):focus-within > :global(.photo){transform:scale(1.075)}
-.card::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 100%,rgba(0,142,255,.62) 0%,rgba(18,89,238,.28) 42%,transparent 76%);opacity:0;transition:opacity 650ms ease}
+.card:global(.program-card) > :global(.photo){transition:transform 650ms cubic-bezier(.2,.65,.3,1),filter 650ms ease;transform:scale(1);filter:grayscale(1);object-position:center;will-change:auto}
+.card:global(.program-card):hover > :global(.photo),.card:global(.program-card):focus-within > :global(.photo){transform:scale(1.075);filter:grayscale(0)}
+.card::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 85% 65% at 0% 100%,rgba(0,142,255,.72) 0%,rgba(18,89,238,.32) 38%,transparent 74%);opacity:0;transition:opacity 650ms ease}
 .card:hover::after,.card:focus-within::after{opacity:1}
 .card :global(.program-copy){z-index:2}
 @media(prefers-reduced-motion:reduce){.card:global(.program-card) > :global(.photo),.card::after{transition:none}.card:global(.program-card):hover > :global(.photo),.card:global(.program-card):focus-within > :global(.photo){transform:none}}

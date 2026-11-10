@@ -23,7 +23,7 @@ export function ProgramCards() {
         {programs.map((program) => (
           <article className={`${styles.card} program-card`} key={program.title}>
             <Photo
-              name={program.image}
+              name={`${program.image}-color`}
               alt=""
               sizes="(max-width:600px) 100vw,(max-width:1024px) 50vw,25vw"
             />
