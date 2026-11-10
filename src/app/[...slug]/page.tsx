@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { futurePages, routes } from "@/config/routes";
 import { articles } from "@/data/home";
+import { allBlogArticles } from "@/data/blog";
 import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Coming soon | OHLA English Schools",
@@ -14,7 +15,9 @@ export default async function FuturePage({
 }) {
   const { slug } = await params;
   const path = "/" + slug.join("/");
-  const article = articles.find((a) => path === `/blog/${a.slug}`);
+  const article = [...articles, ...allBlogArticles].find(
+    (a) => path === `/blog/${a.slug}`,
+  );
   const title = article?.title ?? futurePages[path];
   if (!title) notFound();
   return (
@@ -30,4 +33,12 @@ export default async function FuturePage({
   );
 }
 
-export function generateStaticParams(){return [...Object.keys(futurePages),...articles.map(a=>`/blog/${a.slug}`)].map(path=>({slug:path.slice(1).split("/")}));}
+export function generateStaticParams() {
+  const paths = [
+    ...Object.keys(futurePages).filter((path) => path !== routes.blog),
+    ...[...articles, ...allBlogArticles].map((a) => `/blog/${a.slug}`),
+  ];
+  return [...new Set(paths)].map((path) => ({
+    slug: path.slice(1).split("/"),
+  }));
+}
