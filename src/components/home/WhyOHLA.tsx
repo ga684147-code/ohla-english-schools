@@ -1,8 +1,9 @@
+import styles from "./WhyOHLA.module.css";
 import Image from "next/image";
 import { features } from "@/data/home";
 export function WhyOHLA() {
   return (
-    <section className="why-ohla content-container" aria-labelledby="why-title">
+    <section id="why-ohla" className={`${styles.section} why-ohla content-container`} aria-labelledby="why-title">
       <div className="section-heading">
         <h2 className="gradient-text" id="why-title">
           Why study at OHLA?
@@ -35,6 +36,7 @@ export function WhyOHLA() {
               )}
             </div>
             <h3>{feature.title}</h3>
+            {feature.icon === "165-15140" && <a className={styles.ceaLink} href="https://www.cea-accredit.org/" target="_blank" rel="noopener noreferrer" aria-label="CEA accreditation — opens in a new tab"><Image className={styles.ceaLogo} src="/images/cea-logo.webp" alt="CEA — Leading by Advancing Standards" width={148} height={59}/></a>}
           </article>
         ))}
       </div>
