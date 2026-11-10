@@ -26,7 +26,7 @@ export function VirtualCampus({ videoSrc }: { videoSrc?: string }) {
         </div>
       </div>
       <figure className="virtual-media">
-        {videoSrc ? <video controls preload="none" poster="/images/virtual.webp" aria-label="OHLA Virtual Campus presentation"><source src={videoSrc} /></video> : <Photo
+        {videoSrc ? <video controls playsInline preload="none" width={640} height={360} poster="/images/virtual-campus-poster.jpg" aria-label="OHLA Virtual Campus presentation"><source src={videoSrc} type="video/mp4" />Your browser does not support this video. <a href={videoSrc}>Download the video</a>.</video> : <Photo
           name="virtual"
           alt="OHLA Online Campus presentation preview"
           sizes="(max-width:699px) 100vw,45vw"

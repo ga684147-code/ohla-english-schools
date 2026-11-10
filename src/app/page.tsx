@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main id="main">
       <Hero />
-      <VirtualCampus />
+      <VirtualCampus videoSrc="/videos/virtual-campus.mp4" />
       <WhyOHLA />
       <ProgramCards />
       <PartnerUniversities />
