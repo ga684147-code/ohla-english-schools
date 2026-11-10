@@ -1,12 +1,17 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import styles from "./Header.module.css";
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navigation } from "@/config/navigation";
 import { routes } from "@/config/routes";
 import { Button } from "@/components/ui/Button";
 export function Header() {
+  const pathname = usePathname();
+  const normalizedPath = pathname?.replace(/\/$/, "") || "/";
+  const isCurrent = (href: string) => !href.includes("#") && (href.replace(/\/$/, "") || "/") === normalizedPath;
   const [mobile, setMobile] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const root = useRef<HTMLElement>(null);
@@ -27,7 +32,7 @@ export function Header() {
   return (
     <header
       ref={root}
-      className="site-header"
+      className={`${styles.header} site-header`}
       onKeyDown={(e) => {
         if (e.key === "Escape") {
           const opened = root.current?.querySelector<HTMLButtonElement>(
@@ -49,7 +54,7 @@ export function Header() {
           alt="OHLA English Schools"
           width={99}
           height={94}
-          priority
+          preload
         />
       </Link>
       <button
@@ -72,7 +77,7 @@ export function Header() {
         {navigation.map((item, index) => (
           <div
             key={item.label}
-            className="nav-item"
+            className={`nav-item ${isCurrent(item.href) || item.children?.some(child => isCurrent(child.href)) ? "is-current" : ""}`}
             onMouseEnter={() => {
               if (window.matchMedia("(min-width:1200px)").matches)
                 setActive(item.children ? item.label : null);
@@ -92,6 +97,7 @@ export function Header() {
                   className="nav-trigger"
                   aria-expanded={active === item.label}
                   aria-controls={`dropdown-${index}`}
+                  onKeyDown={e => {if(e.key === "ArrowDown"){e.preventDefault();setActive(item.label);requestAnimationFrame(() => document.getElementById(`dropdown-${index}`)?.querySelector<HTMLAnchorElement>("a")?.focus());}}}
                   onClick={() =>
                     setActive(active === item.label ? null : item.label)
                   }
@@ -105,7 +111,7 @@ export function Header() {
                   inert={active !== item.label}
                 >
                   {item.children.map((child) => (
-                    <Link key={child.label} href={child.href} onClick={close}>
+                    <Link key={child.label} href={child.href} onClick={close} aria-current={isCurrent(child.href) ? "page" : undefined}>
                       {child.label}
                     </Link>
                   ))}
@@ -115,7 +121,7 @@ export function Header() {
               <Link
                 href={item.href}
                 onClick={close}
-                aria-current={item.href === "/" ? "page" : undefined}
+                aria-current={isCurrent(item.href) ? "page" : undefined}
               >
                 {item.label}
               </Link>
