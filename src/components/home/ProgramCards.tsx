@@ -1,3 +1,4 @@
+import styles from "./ProgramCards.module.css";
 import { programs } from "@/data/home";
 import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
@@ -20,7 +21,7 @@ export function ProgramCards() {
       </div>
       <div className="program-grid">
         {programs.map((program) => (
-          <article className="program-card" key={program.title}>
+          <article className={`${styles.card} program-card`} key={program.title}>
             <Photo
               name={program.image}
               alt=""
