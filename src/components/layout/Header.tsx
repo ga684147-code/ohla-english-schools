@@ -1,20 +1,23 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import styles from "./Header.module.css";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navigation } from "@/config/navigation";
 import { routes } from "@/config/routes";
 import { Button } from "@/components/ui/Button";
+import { MegaMenu } from "./MegaMenu";
+import styles from "./Header.module.css";
 export function Header() {
   const pathname = usePathname();
   const normalizedPath = pathname?.replace(/\/$/, "") || "/";
-  const isCurrent = (href: string) => !href.includes("#") && (href.replace(/\/$/, "") || "/") === normalizedPath;
-  const [mobile, setMobile] = useState(false);
-  const [active, setActive] = useState<string | null>(null);
+  const isCurrent = (href: string) =>
+    !href.includes("#") && (href.replace(/\/$/, "") || "/") === normalizedPath;
+  const [mobile, setMobile] = useState(false),
+    [active, setActive] = useState<string | null>(null);
   const root = useRef<HTMLElement>(null);
+  const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   useEffect(() => {
     function dismiss(e: PointerEvent) {
       if (!root.current?.contains(e.target as Node)) {
@@ -29,17 +32,48 @@ export function Header() {
     setMobile(false);
     setActive(null);
   }
+  function focusPanel(index: number, last = false) {
+    requestAnimationFrame(() => {
+      const prefix = window.matchMedia("(min-width:1200px)").matches
+        ? ""
+        : "mobile-";
+      const links = document
+        .getElementById(`${prefix}dropdown-${index}`)
+        ?.querySelectorAll<HTMLAnchorElement>("a");
+      if (links?.length) links[last ? links.length - 1 : 0].focus();
+    });
+  }
   return (
     <header
       ref={root}
       className={`${styles.header} site-header`}
+      data-menu-open={Boolean(active)}
+      onMouseLeave={() => {
+        if (
+          window.matchMedia("(min-width:1200px)").matches &&
+          !root.current?.contains(document.activeElement)
+        )
+          setActive(null);
+      }}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+          if (!e.relatedTarget && e.currentTarget.matches(":hover")) return;
+          close();
+        }
+      }}
       onKeyDown={(e) => {
         if (e.key === "Escape") {
-          const opened = root.current?.querySelector<HTMLButtonElement>(
-            '[aria-expanded="true"]',
-          );
-          close();
-          opened?.focus();
+          e.preventDefault();
+          if (active) {
+            const key = active;
+            setActive(null);
+            triggerRefs.current[key]?.focus();
+          } else if (mobile) {
+            setMobile(false);
+            root.current
+              ?.querySelector<HTMLButtonElement>(".mobile-toggle")
+              ?.focus();
+          }
         }
       }}
     >
@@ -77,46 +111,34 @@ export function Header() {
         {navigation.map((item, index) => (
           <div
             key={item.label}
-            className={`nav-item ${isCurrent(item.href) || item.children?.some(child => isCurrent(child.href)) ? "is-current" : ""}`}
+            className={`nav-item ${isCurrent(item.href) || item.children?.some((child) => isCurrent(child.href)) ? "is-current" : ""}`}
             onMouseEnter={() => {
               if (window.matchMedia("(min-width:1200px)").matches)
-                setActive(item.children ? item.label : null);
-            }}
-            onMouseLeave={() => {
-              if (window.matchMedia("(min-width:1200px)").matches)
-                setActive(null);
-            }}
-            onBlur={(e) => {
-              if (!e.currentTarget.contains(e.relatedTarget as Node))
-                setActive(null);
+                setActive(item.panel ? item.label : null);
             }}
           >
-            {item.children ? (
-              <>
-                <button
-                  className="nav-trigger"
-                  aria-expanded={active === item.label}
-                  aria-controls={`dropdown-${index}`}
-                  onKeyDown={e => {if(e.key === "ArrowDown"){e.preventDefault();setActive(item.label);requestAnimationFrame(() => document.getElementById(`dropdown-${index}`)?.querySelector<HTMLAnchorElement>("a")?.focus());}}}
-                  onClick={() =>
-                    setActive(active === item.label ? null : item.label)
+            {item.panel ? (
+              <button
+                ref={(el) => {
+                  triggerRefs.current[item.label] = el;
+                }}
+                className="nav-trigger"
+                aria-expanded={active === item.label}
+                aria-controls={`dropdown-${index} mobile-dropdown-${index}`}
+                onClick={() =>
+                  setActive(active === item.label ? null : item.label)
+                }
+                onKeyDown={(e) => {
+                  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                    e.preventDefault();
+                    setActive(item.label);
+                    focusPanel(index, e.key === "ArrowUp");
                   }
-                >
-                  {item.label}
-                  <ChevronDown size={13} />
-                </button>
-                <div
-                  id={`dropdown-${index}`}
-                  className={`dropdown ${active === item.label ? "is-open" : ""}`}
-                  inert={active !== item.label}
-                >
-                  {item.children.map((child) => (
-                    <Link key={child.label} href={child.href} onClick={close} aria-current={isCurrent(child.href) ? "page" : undefined}>
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              </>
+                }}
+              >
+                {item.label}
+                <ChevronDown size={13} aria-hidden="true" />
+              </button>
             ) : (
               <Link
                 href={item.href}
@@ -126,12 +148,38 @@ export function Header() {
                 {item.label}
               </Link>
             )}
+            {item.panel && (
+              <div className={styles.mobilePanel}>
+                <MegaMenu
+                  id={`mobile-dropdown-${index}`}
+                  label={item.label}
+                  panel={item.panel}
+                  open={active === item.label}
+                  onNavigate={close}
+                />
+              </div>
+            )}
           </div>
         ))}
         <Button href={routes.contact} className="header-contact">
           Contact us
         </Button>
       </nav>
+      <div className={styles.desktopPanels}>
+        {navigation.map(
+          (item, index) =>
+            item.panel && (
+              <MegaMenu
+                key={item.label}
+                id={`dropdown-${index}`}
+                label={item.label}
+                panel={item.panel}
+                open={active === item.label}
+                onNavigate={close}
+              />
+            ),
+        )}
+      </div>
     </header>
   );
 }

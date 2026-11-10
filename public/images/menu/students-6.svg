@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="1221.66 32.501 59.4229 59.4229" fill="none"><path d="M1242.96 47.4956H1260.96C1262.06 47.4956 1262.96 48.391 1262.96 49.4956V72.4956C1262.96 73.6002 1262.06 74.4956 1260.96 74.4956H1242.96C1241.85 74.4956 1240.96 73.6002 1240.96 72.4956V49.4956C1240.96 48.391 1241.85 47.4956 1242.96 47.4956Z" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="#9B1C20" id="asset-17" />
+<path d="M1246.96 47.4956V45.4956H1256.96V47.4956M1245.96 55.4956H1257.96M1245.96 60.4956H1252.96" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="#9B1C20" id="asset-18" />
+<path d="M1250.35 64.6521L1252.85 67.1521L1258.35 61.6521" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="#9B1C20" id="asset-19" />
+<defs id="asset-24">
+<clipPath id="clip0_473_3417">
+<rect width="35" height="31" fill="white" transform="translate(497.537 45.7124)" />
+</clipPath>
+<clipPath id="clip1_473_3417">
+<rect width="30.9557" height="30.9557" fill="white" transform="translate(499.559 45.7566)" />
+</clipPath>
+<clipPath id="clip2_473_3417">
+<rect width="32" height="35" fill="white" transform="translate(1032.16 43.2773)" />
+</clipPath>
+<clipPath id="clip3_473_3417">
+<rect width="32" height="32" fill="white" transform="translate(849.24 44.7773)" />
+</clipPath>
+<clipPath id="clip4_473_3417">
+<rect width="33" height="33" fill="white" transform="translate(673.389 44.9175)" />
+</clipPath>
+<clipPath id="clip5_473_3417">
+<rect width="28.9844" height="28.9844" fill="white" transform="translate(339.531 47.9966)" />
+</clipPath>
+</defs>
+</svg>
