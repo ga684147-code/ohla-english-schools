@@ -1,0 +1,55 @@
+.art { position: absolute; inset: 0; }
+.art img { object-fit: cover; }
+.banner .mobileAction { display: none; }
+@media (min-width: 768px) and (max-width: 1199px) {
+  .art img { object-position: 60% center; }
+}
+@media (max-width: 767px) {
+  .banner:global(.hero) {
+    --clearance: max(0px, calc(104px - 15vw));
+    display: block;
+    min-height: 0;
+    padding: var(--clearance) 0 0;
+    background: #007bce;
+  }
+  .banner:global(.hero)::after { content: none; }
+  .art { top: var(--clearance); }
+  .art img { object-fit: fill; }
+  .banner :global(.hero-content) {
+    margin: 0; padding: 15vw 0 15.4vw;
+    width: 100%; min-height: 185.8vw;
+    display: flex; flex-direction: column;
+    font-family: Manrope, Arial, sans-serif;
+  }
+  .banner :global(#hero-title) {
+    width: 89%; max-width: none; margin: 0 0 0 6.08%;
+    font: 700 11vw/.85 Manrope, Arial, sans-serif;
+    letter-spacing: -.04em;
+  }
+  .banner :global(.desktop-break) { display: block; }
+  .banner :global(.hero-content) > p {
+    width: 88.22%; max-width: none; margin: 1.8vw 0 0 6.88%;
+    font: 600 4vw/1.51 Manrope, Arial, sans-serif; color: #191919;
+  }
+  .banner :global(.hero-facts) {
+    order: 1; display: flex; flex-flow: column-reverse nowrap; align-items: flex-start;
+    gap: 2.25vw; max-width: none; margin: 3.85vw 0 0 6.08%;
+    font: 700 2.9824vw/1.51 Manrope, Arial, sans-serif; color: #191919;
+  }
+  .banner :global(.hero-facts li) { gap: 1.2vw; }
+  .banner :global(.hero-facts li)::before {
+    content: ""; width: 4.656vw; height: 4.656vw;
+    background: url("/images/home-mobile-check.webp") center / contain no-repeat;
+  }
+  .banner :global(.hero-facts svg), .banner .desktopAction { display: none; }
+  .banner :global(.hero-actions) {
+    order: 2; flex-direction: column; align-items: center;
+    gap: 2vw; margin-top: auto; padding-top: 4vw;
+  }
+  .banner .mobileAction { display: inline-flex; }
+  .banner :global(.hero-actions .button) {
+    width: 79.8%; max-width: none; min-height: max(44px, 12.6vw);
+    padding: 1vw 3vw; font: 600 4.03vw/1.5 Manrope, Arial, sans-serif;
+  }
+  .banner :global(.hero-actions .button:last-child) { width: 74%; }
+}

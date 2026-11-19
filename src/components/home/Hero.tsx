@@ -1,15 +1,15 @@
 import { routes } from "@/config/routes";
 import { Button } from "@/components/ui/Button";
-import { Photo } from "@/components/ui/Photo";
+import Image from "next/image";
+import styles from "./HomeHero.module.css";
 import { Check } from "lucide-react";
 export function Hero() {
   return (
-    <section className="hero" aria-labelledby="hero-title">
-      <Photo
-        name="hero"
-        alt="OHLA student holding a red OHLA notebook in front of the New York skyline"
-        priority
-      />
+    <section className={`hero ${styles.banner}`} aria-labelledby="hero-title">
+      <picture className={styles.art}>
+        <source media="(max-width: 767px)" srcSet="/images/home-mobile-photo.webp" />
+        <Image src="/images/hero.webp" alt="OHLA student holding a red notebook by the New York waterfront" fill sizes="100vw" loading="eager" fetchPriority="high" />
+      </picture>
       <div className="hero-content">
         <h1 id="hero-title" className="gradient-text">
           Study English in
@@ -22,7 +22,8 @@ export function Hero() {
           lead students to higher education in the United States.
         </p>
         <div className="hero-actions">
-          <Button href="#programs">Discover our programs</Button>
+          <Button className={styles.desktopAction} href="#programs">Discover our programs</Button>
+          <Button className={styles.mobileAction} href={routes.campuses}>Explore our Florida campuses</Button>
           <Button href={routes.studyOnline} variant="blue">
             Explore the online campus
           </Button>
