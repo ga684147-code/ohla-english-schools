@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { Photo } from "@/components/ui/Photo";
 import { BlogCTA } from "@/components/blog/BlogCTA";
 import { VirtualCampus } from "@/components/home/VirtualCampus";
 import { routes } from "@/config/routes";
@@ -24,7 +23,10 @@ export default function StudyOnlinePage() {
   return (
     <main id="main" className={styles.page}>
       <section className={styles.hero} aria-labelledby="online-title">
-        <Photo name="virtual-campus/hero" priority alt="" />
+        <picture className={styles.heroArt}>
+          <source media="(max-width: 699px)" srcSet="/images/virtual-campus/hero-mobile.webp" />
+          <Image src="/images/virtual-campus/hero.webp" alt="" fill sizes="100vw" fetchPriority="high" loading="eager" />
+        </picture>
         <div className={styles.heroCopy}>
           <h1 id="online-title">Study English online with OHLA</h1>
           <p>Live classes with OHLA teachers</p>
