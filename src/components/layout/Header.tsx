@@ -158,7 +158,7 @@ export function Header() {
             )}
           </div>
         ))}
-        <Button href={routes.contact} className="header-contact">
+        <Button href={routes.contact} className="header-contact" onClick={close}>
           Contact us
         </Button>
       </nav>
