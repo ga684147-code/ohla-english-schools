@@ -1,0 +1,147 @@
+.page {
+  background: #e9ebed;
+  color: #1d2251;
+}
+.hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: clamp(510px, 42.35vw, 813px);
+  color: white;
+  isolation: isolate;
+  background: #1d2251;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 16% 105%, #303aaecc, transparent 35%),
+    linear-gradient(100deg, #0b253ef7 0%, #122c4ae8 24%, #192b4c9c 45%, #0a12200a 83%);
+}
+.hero > img { z-index: -2; object-fit: cover; }
+.heroInner {
+  width: min(68%, 1310px);
+  margin: auto;
+  padding: clamp(140px, 10vw, 192px) 0 clamp(65px, 7vw, 135px);
+}
+.titleRow { display: flex; align-items: center; gap: clamp(12px, 1vw, 20px); }
+.titleRow h1 {
+  color: white;
+  font-size: clamp(56px, 4.69vw, 90px);
+  line-height: .95;
+  letter-spacing: -.042em;
+}
+.titleRow h1 span { display: block; }
+.pinCircle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: clamp(45px, 3.4vw, 65px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: #ad1c26;
+  background: white;
+}
+.pinCircle svg { width: 49%; height: 49%; }
+.lead {
+  font-size: clamp(26px, 2.34vw, 45px);
+  font-weight: 600;
+  line-height: 1.09;
+  letter-spacing: -.04em;
+  max-width: 17.5em;
+  margin-top: clamp(20px, 2.1vw, 40px);
+}
+.intro { max-width: 28em; font: 400 clamp(16px, 1.04vw, 20px)/1.4 Montserrat, sans-serif; margin-top: 1.1em; }
+.badge, .cardTag {
+  display: inline-flex;
+  align-items: center;
+  gap: .6em;
+  color: white;
+  background: #1d2251;
+  border-radius: .53em;
+  padding: .48em .95em;
+}
+.badge { margin-top: 1em; font-size: clamp(16px, 1.12vw, 21.5px); }
+.badge svg { color: #ed313c; }
+.directory, .related { width: min(78%, 1400px); margin: auto; }
+.directory { padding-block: clamp(34px, 2.55vw, 49px) clamp(70px, 6.83vw, 131px); }
+.cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: clamp(12px, 1vw, 20px); }
+.card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: clamp(15px, 1.25vw, 24px);
+  display: flex;
+  flex-direction: column;
+}
+.cardPhoto, .cityPhoto { position: relative; overflow: hidden; border-radius: 8px; }
+.cardPhoto { aspect-ratio: 1.31; }
+.cardPhoto img, .cityPhoto img { object-fit: cover; }
+.cardTag { position: absolute; top: .7em; left: .7em; font-size: 14px; }
+.cardBody { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: clamp(15px, 1.5vw, 29px) .5em 0; }
+.cardBody h3, .about h2 { font-size: clamp(22px, 1.53vw, 29.4px); line-height: 1.08; color: #1d2251; letter-spacing: -.035em; }
+.cardBody address, .about address { color: #9b1c20; font-style: normal; font-size: 14px; line-height: 1.45; margin-top: .42em; }
+.cardBody p, .about p { font-size: 16px; line-height: 1.48; margin-top: 1.05em; }
+.cardBody p { margin-bottom: 2em; }
+.cardBody :global(.button) { margin-top: auto; min-width: min(100%, 12.7em); min-height: 45px; font-size: clamp(14px, .88vw, 17px); }
+.detail {
+  width: min(68%, 1300px);
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(35px, 3.6vw, 70px);
+  padding-block: clamp(56px, 4.75vw, 92px) clamp(70px, 6vw, 116px);
+}
+.gallery { display: grid; gap: clamp(10px, 1vw, 19px); }
+.cityPhoto { aspect-ratio: 1.5; }
+.video { background: #070709; border-radius: 12px; aspect-ratio: 16/9; position: relative; }
+.video iframe, .play { display: grid; width: 100%; height: 100%; border: 0; border-radius: inherit; }
+.play { place-items: center; position: relative; overflow: hidden; }
+.play img { object-fit: cover; }
+.play span { position: relative; display: grid; place-items: center; width: 56px; aspect-ratio: 1; background: #171c3ad9; border: 1px solid #ffffffab; color: white; border-radius: 50%; }
+.play:hover span, .play:focus-visible span { background: #9b1c20; }
+.videoLink { display: inline-block; position: absolute; bottom: 100%; right: 0; color: #1d2251; font-size: 13px; text-decoration: underline; }
+.about h3 { margin: 1.7em 0 .9em; font-size: clamp(18px, 1.05vw, 20px); }
+.about ul { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1em 1.2em; color: #191919; font-size: clamp(16px, 1.04vw, 20px); }
+.about li { display: flex; align-items: flex-start; gap: .7em; line-height: 1.4; }
+.about li svg { flex: none; width: 1.05em; height: 1.05em; margin-top: .19em; color: #bc202a; stroke-width: 1.7; }
+.related { padding-block: clamp(45px, 3.8vw, 73px); }
+.seeAlso { font-weight: 500; text-transform: uppercase; font-size: clamp(26px, 2.1vw, 40px); margin-bottom: .65em; }
+.related .cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.related .card { display: grid; grid-template-columns: 41% minmax(0,1fr); gap: 1.2em; padding: clamp(14px, 1.15vw, 22px); }
+.related .cardPhoto { aspect-ratio: auto; min-height: 220px; }
+.related .cardBody { padding: 0; }
+.related .cardBody p { margin-bottom: 1.25em; }
+.related .cardBody :global(.button) { align-self: flex-end; }
+.tab { display: flex; align-items: center; gap: .65em; }
+.tab img { transform: rotate(180deg); }
+@media (max-width: 1199px) {
+  .directory, .related, .detail, .heroInner { width: 88%; }
+  .related .card { grid-template-columns: 34% minmax(0,1fr); gap: 12px; }
+}
+@media (max-width: 850px) {
+  .directory, .related, .detail { width: 91%; }
+  .cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .related .cards { grid-template-columns: 1fr; }
+  .related .cardPhoto { min-height: 180px; }
+  .detail { gap: 24px; }
+}
+@media (max-width: 740px) {
+  .hero { min-height: 470px; }
+  .heroInner { width: 89%; padding: 142px 0 62px; }
+  .titleRow h1 { font-size: clamp(42px, 10vw, 62px); }
+  .hero::after { background: linear-gradient(90deg, #102745ee, #16255070 78%), linear-gradient(0deg, #182e66b3, transparent 75%); }
+  .hero > img { object-position: 60% center; }
+  .detail { grid-template-columns: 1fr; padding-block: 35px 48px; gap: 28px; }
+  .gallery { gap: 12px; }
+  .directory { padding-block: 26px 46px; }
+  .cards { grid-template-columns: 1fr; }
+  .card { padding: 16px; }
+  .cardBody { padding: 18px 4px 4px; }
+  .cardBody p { margin-bottom: 1.2em; }
+  .related .card { grid-template-columns: 1fr; gap: 16px; }
+  .related .cardPhoto { aspect-ratio: 1.8; min-height: 0; }
+  .related .cardBody :global(.button) { align-self: flex-start; }
+  .tab img { width: 20px; height: 20px; }
+}

@@ -433,3 +433,5 @@
     transition: none !important;
   }
 }
+
+.overviewLink { display: inline-block; margin-top: .8em; font-weight: 600; text-decoration: underline; text-underline-offset: .2em; }

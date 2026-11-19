@@ -24,7 +24,9 @@ export function MobileSubmenu({ panel, onNavigate }: {
   const items = panel === "campuses"
     ? campusMenu.map(item => ({ ...item, src: `/images/menu/campus-${item.image}.webp` }))
     : iconMenus[panel].map(item => ({ ...item, src: `/images/menu/${item.icon}.svg` }));
-  return <ul className={styles.mobileLinks}>{items.map(item => (
+  return <ul className={styles.mobileLinks}>
+    {panel === "campuses" && <li><Link href={routes.campuses} onClick={onNavigate}>Explore all campuses</Link></li>}
+    {items.map(item => (
     <li key={item.href}><Link href={item.href} onClick={onNavigate}>
       <Image src={item.src} width={36} height={36} alt="" />
       <span>{item.label}</span>

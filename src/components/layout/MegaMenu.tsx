@@ -83,6 +83,7 @@ export function MegaMenu({
               innovative technology for students to explore their linguistic
               creativity.
             </p>
+            <Link href={routes.campuses} onClick={onNavigate} className={styles.overviewLink}>Explore all campuses</Link>
           </div>
           {campusMenu.map((campus) => (
             <Link
