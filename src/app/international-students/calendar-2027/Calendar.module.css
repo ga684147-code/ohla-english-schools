@@ -1,0 +1,119 @@
+@font-face {
+  font-family: Figtree;
+  src: url("/fonts/calendar-figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "League Spartan";
+  src: url("/fonts/calendar-leaguespartan.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+.page {
+  --session: #a51e24;
+  --other: #195daa;
+  --closed: #946100;
+  background: #edf6f9;
+  color: #112d55;
+  padding-bottom: clamp(54px, 6.5vw, 125px);
+}
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: clamp(525px, 52.32vw, 1005px);
+  background: #141a44;
+  color: #fcfcfc;
+}
+.hero > img { z-index: -2; object-fit: cover; object-position: center 25%; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/images/calendar/glow.webp") left bottom / 68% 70% no-repeat,
+    url("/images/calendar/shade.webp") left center / 85% 145% no-repeat;
+}
+.heroCopy { width: min(69.7%, 1338px); margin: auto; padding: 115px 0 112px; }
+.heroCopy h1 {
+  color: inherit;
+  font-size: clamp(62px, 6.25vw, 120px);
+  font-weight: 700;
+  line-height: .875;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+.heroCopy p {
+  max-width: 20em;
+  margin-top: clamp(22px, 2vw, 39px);
+  font: 400 clamp(17px, 1.3vw, 25px)/1.15 Inter, sans-serif;
+}
+.sheet, .contact { width: min(76.46%, 1468px); margin-inline: auto; border-radius: clamp(18px, 1.67vw, 32px); }
+.sheet {
+  position: relative;
+  margin-top: max(-7.74vw, -149px);
+  padding: clamp(32px, 4.17vw, 80px) clamp(30px, 3.75vw, 72px) clamp(24px, 1.9vw, 37px);
+  background: white;
+  font-family: Figtree, sans-serif;
+}
+.events { display: flex; flex-wrap: wrap; gap: 7px 9px; }
+.events li { background: #e4f1f5; padding: .55em .85em; border-radius: 7px; font-size: clamp(.78rem, .68vw, .84rem); line-height: 1.35; letter-spacing: .01em; }
+.months { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(9px, .68vw, 13px); margin: clamp(24px, 2vw, 39px) 1% 0; }
+.card { min-width: 0; background: #f0f5f6; padding: 10px 2px; border-radius: 11px; }
+.month { border: 0; border-collapse: collapse; width: 100%; table-layout: fixed; text-align: center; color: #112d55; }
+.month caption { font: 700 clamp(19px, 1.17vw, 23px)/1.2 "League Spartan", sans-serif; margin-bottom: .36em; }
+.month th { font: 700 .72rem/1.1 "League Spartan", sans-serif; padding: .4em 0; }
+.month td { padding: 2px 0; }
+.month time { display: inline-grid; place-items: center; width: clamp(24px, 1.42vw, 28px); aspect-ratio: 1; border-radius: 50%; font-size: clamp(.76rem, .72vw, .88rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.sheet [data-kind="session"] { background: var(--session); color: white; font-weight: 700; }
+.sheet [data-kind="other"] { background: var(--other); color: white; font-weight: 700; }
+.sheet [data-kind="closed"] { color: var(--closed); font-weight: 700; }
+.legend { display: flex; align-items: center; justify-content: space-around; gap: 8px; margin-top: clamp(22px, 2.2vw, 42px); }
+.legend li { border-radius: 99px; padding: .47em 1.15em; text-align: center; font-size: clamp(.875rem, .9vw, 1.1rem); }
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: clamp(160px, 12.5vw, 240px);
+  margin-top: clamp(24px, 2.6vw, 50px);
+  padding: clamp(22px, 2.2vw, 42px);
+  background: #112d55 url("/images/calendar/cta.webp") left center / 100% 100% no-repeat;
+  color: white;
+}
+.contact h2 { color: inherit; font-size: clamp(24px, 2.08vw, 40px); line-height: 1.12; letter-spacing: -.03em; }
+.contact p { margin-top: .65em; font-size: clamp(16px, 1.3vw, 25px); line-height: 1.35; }
+.contact :global(.button) { flex: none; align-self: end; }
+@media (max-width: 1100px) {
+  .sheet, .contact { width: 90%; }
+  .heroCopy { width: 82%; }
+  .months { margin-inline: 0; }
+}
+@media (max-width: 800px) {
+  .months { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sheet { padding-inline: 22px; }
+  .contact { align-items: flex-start; flex-direction: column; }
+  .contact :global(.button) { align-self: flex-start; }
+}
+@media (max-width: 560px) {
+  .hero { min-height: 490px; }
+  .hero > img { object-position: 64% center; }
+  .hero::before {
+    background: linear-gradient(90deg, #11183cc9, #141e464a),
+      url("/images/calendar/glow.webp") left bottom / 90% 65% no-repeat,
+      url("/images/calendar/shade.webp") left center / cover no-repeat;
+  }
+  .heroCopy { width: 88%; padding: 145px 0 95px; }
+  .heroCopy h1 { font-size: clamp(38px, 9.9vw, 56px); }
+  .heroCopy p { max-width: 21em; line-height: 1.35; }
+  .sheet { padding: 22px 14px; margin-top: -32px; }
+  .events { gap: 5px; }
+  .events li { font-size: .78rem; }
+  .months { grid-template-columns: 1fr; gap: 12px; }
+  .card { padding: 14px 4px; }
+  .month time { width: 30px; font-size: .9rem; }
+  .legend { flex-wrap: wrap; justify-content: center; }
+  .legend li { font-size: .8rem; }
+}
