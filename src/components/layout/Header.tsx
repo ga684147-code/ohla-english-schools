@@ -7,6 +7,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { navigation } from "@/config/navigation";
 import { routes } from "@/config/routes";
 import { Button } from "@/components/ui/Button";
+import { MobileSubmenu } from "./MobileSubmenu";
 import { MegaMenu } from "./MegaMenu";
 import styles from "./Header.module.css";
 export function Header() {
@@ -150,14 +151,8 @@ export function Header() {
             )}
             {item.panel && (
               <div className={styles.mobilePanel} data-expanded={active === item.label} inert={active !== item.label}>
-                <div className={styles.panelClip}>
-                <MegaMenu
-                  id={`mobile-dropdown-${index}`}
-                  label={item.label}
-                  panel={item.panel}
-                  open
-                  onNavigate={close}
-                />
+                <div className={styles.panelClip} id={`mobile-dropdown-${index}`} role="region" aria-label={`${item.label} submenu`}>
+                  <MobileSubmenu panel={item.panel} onNavigate={close} />
                 </div>
               </div>
             )}
