@@ -1,3 +1,4 @@
+import { ProgramStack } from "./ProgramStack";
 import styles from "./ProgramCards.module.css";
 import { programs } from "@/data/home";
 import { Button } from "@/components/ui/Button";
@@ -19,7 +20,7 @@ export function ProgramCards() {
           academic plans.
         </p>
       </div>
-      <div className="program-grid">
+      <ProgramStack>
         {programs.map((program) => (
           <article className={`${styles.card} program-card`} key={program.title}>
             <Photo
@@ -37,7 +38,7 @@ export function ProgramCards() {
             </div>
           </article>
         ))}
-      </div>
+      </ProgramStack>
     </section>
   );
 }

@@ -5,3 +5,19 @@
 .card:hover::after,.card:focus-within::after{opacity:1}
 .card :global(.program-copy){z-index:2}
 @media(prefers-reduced-motion:reduce){.card:global(.program-card) > :global(.photo),.card::after{transition:none}.card:global(.program-card):hover > :global(.photo),.card:global(.program-card):focus-within > :global(.photo){transform:none}}
+
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .stack {
+    isolation: isolate;
+    align-items: start;
+  }
+  .stack > .card {
+    position: sticky;
+    top: var(--pin, 100px);
+    width: 100%;
+    transform-origin: center top;
+    transform: scale(var(--scale, 1));
+    filter: brightness(var(--brightness, 1));
+  }
+  .stack > .card:focus-within { z-index: 1; }
+}
