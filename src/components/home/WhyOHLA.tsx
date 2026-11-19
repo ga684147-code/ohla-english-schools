@@ -1,3 +1,4 @@
+import { FeatureOrbit } from "./FeatureOrbit";
 import styles from "./WhyOHLA.module.css";
 import Image from "next/image";
 import { features } from "@/data/home";
@@ -13,7 +14,7 @@ export function WhyOHLA() {
           support, and academic opportunities in the United States.
         </p>
       </div>
-      <div className="feature-grid">
+      <FeatureOrbit labels={features.map(feature => feature.title)}>
         {features.map((feature, index) => (
           <article className="feature-card" key={feature.title}>
             <div className="feature-icons">
@@ -39,7 +40,7 @@ export function WhyOHLA() {
             {feature.icon === "165-15140" && <a className={styles.ceaLink} href="https://www.cea-accredit.org/" target="_blank" rel="noopener noreferrer" aria-label="CEA accreditation — opens in a new tab"><Image className={styles.ceaLogo} src="/images/cea-logo.webp" alt="CEA — Leading by Advancing Standards" width={148} height={59}/></a>}
           </article>
         ))}
-      </div>
+      </FeatureOrbit>
     </section>
   );
 }
