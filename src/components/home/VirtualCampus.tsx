@@ -2,7 +2,7 @@ import styles from "./VirtualCampus.module.css";
 import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
 import { routes } from "@/config/routes";
-export function VirtualCampus({ videoSrc }: { videoSrc?: string }) {
+export function VirtualCampus({ videoSrc, showActions = true }: { videoSrc?: string; showActions?: boolean }) {
   return (
     <section
       className={`${styles.section} virtual-campus content-container`}
@@ -18,12 +18,12 @@ export function VirtualCampus({ videoSrc }: { videoSrc?: string }) {
           interactive classes with OHLA specialist teachers using our
           state-of-the-art hybrid platform.
         </p>
-        <div className="button-row">
+        {showActions && <div className="button-row">
           <Button href={routes.apply}>Apply now</Button>
           <Button href={routes.studyOnline} variant="outline">
             Learn more
           </Button>
-        </div>
+        </div>}
       </div>
       <figure className="virtual-media">
         {videoSrc ? <video controls playsInline preload="none" width={640} height={360} poster="/images/virtual-campus-poster.jpg" aria-label="OHLA Virtual Campus presentation"><source src={videoSrc} type="video/mp4" />Your browser does not support this video. <a href={videoSrc}>Download the video</a>.</video> : <Photo

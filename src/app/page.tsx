@@ -1,3 +1,4 @@
+import { routes } from "@/config/routes";
 import { Hero } from "@/components/home/Hero";
 import { VirtualCampus } from "@/components/home/VirtualCampus";
 import { WhyOHLA } from "@/components/home/WhyOHLA";
@@ -21,7 +22,7 @@ export default function Home() {
       <Testimonials />
       <LatestArticles />
       <ContactCTA />
-      <a className="virtual-tab" href="#virtual-campus">
+      <a className="virtual-tab" href={routes.studyOnline}>
         Virtual Campus
       </a>
     </main>

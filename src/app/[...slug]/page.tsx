@@ -36,7 +36,7 @@ export default async function FuturePage({
 export function generateStaticParams() {
   const paths = [
     ...Object.keys(futurePages).filter(
-      (path) => path !== routes.blog && path !== routes.contact,
+      (path) => path !== routes.blog && path !== routes.contact && path !== routes.studyOnline,
     ),
     ...[...articles, ...allBlogArticles].map((a) => `/blog/${a.slug}`),
   ];

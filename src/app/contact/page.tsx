@@ -157,7 +157,7 @@ export default function ContactPage() {
         </section>
       </div>
       <BlogCTA buttonLabel="Contact us now" href="#contact-form" />
-      <a className="virtual-tab" href={`${routes.home}#virtual-campus`}>
+      <a className="virtual-tab" href={routes.studyOnline}>
         Virtual Campus
       </a>
     </main>

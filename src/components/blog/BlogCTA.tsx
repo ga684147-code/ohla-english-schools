@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/Button";
 import { routes } from "@/config/routes";
 import styles from "./Blog.module.css";
 export function BlogCTA({
+  heading = "Contact us for promotional prices.",
   buttonLabel = "Consult now",
   href = routes.contact,
 }: {
+  heading?: string;
   buttonLabel?: string;
   href?: string;
 }) {
@@ -21,7 +23,7 @@ export function BlogCTA({
       </div>
       <div className={styles.ctaShade} />
       <div className={styles.ctaCopy}>
-        <h2 id="blog-contact-title">Contact us for promotional prices.</h2>
+        <h2 id="blog-contact-title">{heading}</h2>
         <Button href={href} variant="outline">
           {buttonLabel}
         </Button>

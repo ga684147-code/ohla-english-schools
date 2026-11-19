@@ -14,7 +14,7 @@ export default function BlogPage() {
       <BlogHero />
       <BlogListing />
       <BlogCTA />
-      <a className="virtual-tab" href={`${routes.home}#virtual-campus`}>
+      <a className="virtual-tab" href={routes.studyOnline}>
         Virtual Campus
       </a>
     </main>

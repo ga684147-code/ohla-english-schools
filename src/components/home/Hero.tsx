@@ -1,3 +1,4 @@
+import { routes } from "@/config/routes";
 import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
 import { Check } from "lucide-react";
@@ -22,7 +23,7 @@ export function Hero() {
         </p>
         <div className="hero-actions">
           <Button href="#programs">Discover our programs</Button>
-          <Button href="#virtual-campus" variant="blue">
+          <Button href={routes.studyOnline} variant="blue">
             Explore the online campus
           </Button>
         </div>
