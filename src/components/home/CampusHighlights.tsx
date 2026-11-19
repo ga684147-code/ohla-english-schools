@@ -1,3 +1,5 @@
+import { ChevronRight } from "lucide-react";
+import styles from "./LevelCard.module.css";
 import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
 import { routes } from "@/config/routes";
@@ -24,21 +26,27 @@ export function CampusHighlights() {
           </Button>
         </div>
       </article>
-      <article className="level-banner">
-        <div className="level-photo">
+      <article className={`level-banner ${styles.card}`}>
+        <picture className="level-photo">
+          <source media="(max-width: 767px)" srcSet="/images/level-student-mobile.webp" />
           <Photo
             name="level-student"
             alt="Smiling student carrying books and a phone"
             sizes="(max-width:767px) 50vw,25vw"
           />
-        </div>
+        </picture>
         <div className="level-copy">
           <h2>Discover your English level</h2>
           <p>
             Take OHLA&apos;s free test and get a reference of your current level
             before choosing a program.
           </p>
-          <Button href={routes.levelTest}>Take the free test</Button>
+          <Button href={routes.levelTest} className={styles.desktopTest}>Take the free test</Button>
+          <a className={`button button--red ${styles.mobileTest}`}
+            href="https://www.classmarker.com/online-test/start/user-info/?quiz=ddr644a715424b27"
+            target="_blank" rel="noopener noreferrer">
+            Take the free test <ChevronRight aria-hidden="true" size={16} strokeWidth={1.5} />
+          </a>
         </div>
       </article>
     </section>
