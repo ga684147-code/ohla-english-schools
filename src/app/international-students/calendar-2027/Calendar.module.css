@@ -58,15 +58,30 @@
   background: white;
   font-family: Figtree, sans-serif;
 }
-.events { display: flex; flex-wrap: wrap; gap: 7px 9px; }
+.filter { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1rem; margin-bottom: 1.25rem; }
+.filter label { font-weight: 700; }
+.filter select {
+  min-height: 44px;
+  min-width: 12rem;
+  max-width: 100%;
+  padding: .55rem .85rem;
+  border: 1px solid #879aa9;
+  border-radius: 8px;
+  background: white;
+  color: #112d55;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.filter select:focus-visible { outline: 3px solid #195daa; outline-offset: 3px; }
+.events { display: flex; flex-wrap: wrap; gap: 7px 9px; margin-bottom: 1rem; }
 .events li { background: #e4f1f5; padding: .55em .85em; border-radius: 7px; font-size: clamp(.78rem, .68vw, .84rem); line-height: 1.35; letter-spacing: .01em; }
-.months { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(9px, .68vw, 13px); margin: clamp(24px, 2vw, 39px) 1% 0; }
-.card { min-width: 0; background: #f0f5f6; padding: 10px 2px; border-radius: 11px; }
+.card { min-width: 0; background: #f0f5f6; padding: clamp(16px, 2vw, 32px) clamp(4px, 2vw, 32px); border-radius: 11px; }
 .month { border: 0; border-collapse: collapse; width: 100%; table-layout: fixed; text-align: center; color: #112d55; }
-.month caption { font: 700 clamp(19px, 1.17vw, 23px)/1.2 "League Spartan", sans-serif; margin-bottom: .36em; }
-.month th { font: 700 .72rem/1.1 "League Spartan", sans-serif; padding: .4em 0; }
+.month caption { font: 700 clamp(23px, 1.8vw, 32px)/1.2 "League Spartan", sans-serif; margin-bottom: .36em; }
+.month th { font: 700 .9rem/1.1 "League Spartan", sans-serif; padding: .4em 0; }
 .month td { padding: 2px 0; }
-.month time { display: inline-grid; place-items: center; width: clamp(24px, 1.42vw, 28px); aspect-ratio: 1; border-radius: 50%; font-size: clamp(.76rem, .72vw, .88rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.month time { display: inline-grid; place-items: center; width: clamp(32px, 3vw, 44px); aspect-ratio: 1; border-radius: 50%; font-size: 1rem; line-height: 1; font-variant-numeric: tabular-nums; }
 .sheet [data-kind="session"] { background: var(--session); color: white; font-weight: 700; }
 .sheet [data-kind="other"] { background: var(--other); color: white; font-weight: 700; }
 .sheet [data-kind="closed"] { color: var(--closed); font-weight: 700; }
@@ -89,10 +104,8 @@
 @media (max-width: 1100px) {
   .sheet, .contact { width: 90%; }
   .heroCopy { width: 82%; }
-  .months { margin-inline: 0; }
 }
 @media (max-width: 800px) {
-  .months { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sheet { padding-inline: 22px; }
   .contact { align-items: flex-start; flex-direction: column; }
   .contact :global(.button) { align-self: flex-start; }
@@ -109,9 +122,10 @@
   .heroCopy h1 { font-size: clamp(38px, 9.9vw, 56px); }
   .heroCopy p { max-width: 21em; line-height: 1.35; }
   .sheet { padding: 22px 14px; margin-top: -32px; }
+  .filter { flex-direction: column; align-items: stretch; gap: .45rem; }
+  .filter select { min-width: 0; }
   .events { gap: 5px; }
   .events li { font-size: .78rem; }
-  .months { grid-template-columns: 1fr; gap: 12px; }
   .card { padding: 14px 4px; }
   .month time { width: 30px; font-size: .9rem; }
   .legend { flex-wrap: wrap; justify-content: center; }
