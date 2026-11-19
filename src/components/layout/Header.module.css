@@ -148,3 +148,45 @@
     display: none;
   }
 }
+
+@media (max-width: 1199px) {
+  .header :global(.navigation.is-open) {
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #111735;
+  }
+
+  .header :global(.nav-trigger) {
+    text-align: left;
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .header :global(.nav-trigger svg) {
+    flex: none;
+    transition: transform 180ms ease;
+  }
+
+  .header :global(.nav-trigger[aria-expanded="true"] svg) {
+    transform: scaleY(-1);
+  }
+
+  .mobilePanel {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows 200ms ease, visibility 0s 200ms;
+  }
+
+  .mobilePanel[data-expanded="true"] {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .panelClip {
+    min-height: 0;
+    overflow: hidden;
+  }
+}

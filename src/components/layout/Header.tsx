@@ -149,14 +149,16 @@ export function Header() {
               </Link>
             )}
             {item.panel && (
-              <div className={styles.mobilePanel}>
+              <div className={styles.mobilePanel} data-expanded={active === item.label} inert={active !== item.label}>
+                <div className={styles.panelClip}>
                 <MegaMenu
                   id={`mobile-dropdown-${index}`}
                   label={item.label}
                   panel={item.panel}
-                  open={active === item.label}
+                  open
                   onNavigate={close}
                 />
+                </div>
               </div>
             )}
           </div>
