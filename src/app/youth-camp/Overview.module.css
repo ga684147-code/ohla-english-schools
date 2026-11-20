@@ -76,3 +76,54 @@
   .contact::before { background: linear-gradient(0deg,#1d2251 44%,#1d2251dd 60%,transparent 90%); }
   .contact :global(.button) { align-self: flex-start; }
 }
+
+.dial { display: none; }
+.why[data-orbit] {
+  --view: calc(100svh - var(--inset));
+  --width: clamp(250px, 68vw, 340px);
+  height: calc(var(--view) + var(--travel, 0px));
+}
+.why[data-orbit] .scene {
+  position: sticky;
+  top: var(--inset);
+  height: var(--view);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.why[data-orbit] .orbitIntro { flex: none; padding: 16px 12px 0; }
+.why[data-orbit] .stage { position: relative; flex: 1; margin-top: 24px; }
+.why[data-orbit] .benefits {
+  position: absolute;
+  top: calc(var(--radius) + var(--height) / 2);
+  left: 50%;
+  display: block;
+  margin: 0;
+  width: 0;
+  height: 0;
+  transform: rotate(var(--turn, 0deg));
+  will-change: transform;
+}
+.why[data-orbit] .benefits li {
+  position: absolute;
+  width: var(--width);
+  min-height: min(33vh, 320px);
+  height: var(--height, auto);
+  background: white;
+  transform: translate(-50%, -50%) rotate(calc(var(--index) * var(--step))) translateY(calc(-1 * var(--radius)));
+}
+.why[data-orbit] .dial {
+  display: block;
+  position: absolute;
+  top: calc(var(--height) + 36px);
+  left: 50%;
+  width: max(650px, 110%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  background: conic-gradient(from 180deg, #5879ac var(--lit), #d4deec 0);
+  mask-image: radial-gradient(closest-side, transparent 84%, black 84.5%),
+    repeating-conic-gradient(black 0deg .17deg, transparent .2deg 2deg);
+  mask-composite: intersect;
+  transform: translateX(-50%) rotate(var(--dial-turn, 0deg));
+}

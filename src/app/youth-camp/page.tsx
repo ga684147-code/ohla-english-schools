@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
 import { routes } from "@/config/routes";
 import { iconMenus } from "@/data/menus";
+import { BenefitOrbit } from "./BenefitOrbit";
 import styles from "./Overview.module.css";
 
 export const metadata: Metadata = {
@@ -63,13 +64,9 @@ export default function YouthCampPage() {
         <div><strong>{title}</strong>{lines.map(line => <p key={line}>{line}</p>)}</div>
       </li>)}
     </ul>
-    <section className={styles.why} aria-labelledby="why-camp">
-      <h2 id="why-camp">Why choose OHLA?</h2>
-      <p className={styles.subtitle}>Learn beyond the classroom and discover the best of Florida.</p>
-      <ul className={styles.benefits}>{benefits.map(([icon, title, text]) =>
-        <li key={icon}><CampIcon name={icon} size={60} /><h3>{title}</h3><p>{text}</p></li>
-      )}</ul>
-    </section>
+    <BenefitOrbit>{benefits.map(([icon, title, text]) =>
+      <li key={icon}><CampIcon name={icon} size={60} /><h3>{title}</h3><p>{text}</p></li>
+    )}</BenefitOrbit>
     <section className={styles.day} aria-labelledby="camp-day">
       <h2 id="camp-day">A typical day at OHLA</h2>
       <p className={styles.subtitle}>English lessons, exciting activities and time to connect.</p>
