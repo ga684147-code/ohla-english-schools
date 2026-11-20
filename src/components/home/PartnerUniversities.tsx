@@ -1,3 +1,4 @@
+import { PartnerOdometer } from "./PartnerOdometer";
 import { RevealHeading } from "@/components/ui/RevealHeading";
 import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
@@ -19,7 +20,7 @@ export function PartnerUniversities() {
       </span>
       <div className="partner-copy">
         <div className="partner-stat">
-          <strong>200+</strong>
+          <PartnerOdometer />
           <span>
             partner universities
             <br /> and colleges

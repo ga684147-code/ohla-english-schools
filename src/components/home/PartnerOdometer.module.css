@@ -1,0 +1,33 @@
+.window {
+  position: relative;
+  display: inline-block;
+  clip-path: inset(0 -0.12em);
+}
+
+.spacer {
+  visibility: hidden;
+}
+
+.reel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: roll 900ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.reel > span {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+
+@keyframes roll {
+  from { transform: translateY(0); }
+  to { transform: translateY(calc(-100% + 1em)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel { display: none; }
+  .spacer { visibility: visible; }
+}
