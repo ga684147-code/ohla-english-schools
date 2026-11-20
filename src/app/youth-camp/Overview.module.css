@@ -69,6 +69,7 @@
   .facts { padding: 12px; }
   .facts li { flex-direction: column; }
   .benefits, .schedule { grid-template-columns: 1fr; }
+  .day { margin-top: 24px; }
   .schedule { padding: 14px; }
   .contact { flex-direction: column; align-items: flex-start; min-height: 0; padding: 220px 22px 28px; }
   .contactCopy { width: 100%; max-width: none; }
@@ -126,4 +127,15 @@
     repeating-conic-gradient(black 0deg .17deg, transparent .2deg 2deg);
   mask-composite: intersect;
   transform: translateX(-50%) rotate(var(--dial-turn, 0deg));
+}
+
+@media (max-width: 767px) {
+  .why[data-orbit] {
+    --dial-gap: 16px;
+    --dial-preview: 40px;
+    --stage-gap: 24px;
+    --view: min(calc(100svh - var(--inset)), calc(var(--intro-height, 100svh) + var(--stage-gap) + var(--height, 0px) + var(--dial-gap) + var(--dial-preview)));
+  }
+  .why[data-orbit] .stage { margin-top: var(--stage-gap); }
+  .why[data-orbit] .dial { top: calc(var(--height) + var(--dial-gap)); }
 }

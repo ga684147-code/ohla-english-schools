@@ -45,6 +45,7 @@ export function BenefitOrbit({ children }: { children: ReactNode }) {
       section.style.setProperty("--step", step + "deg");
       section.dataset.orbit = "active";
       section.style.removeProperty("--height");
+      section.style.removeProperty("--intro-height");
       const height = Math.max(...cards.map(card => Math.max(card.offsetHeight, card.scrollHeight)));
       const available = scene.clientHeight;
       if (heading.offsetHeight + height + 55 > available) {
@@ -54,6 +55,7 @@ export function BenefitOrbit({ children }: { children: ReactNode }) {
       const half = step * Math.PI / 360;
       const radius = height / 2 + (cards[0].offsetWidth * Math.cos(half) + 28) / (2 * Math.sin(half));
       travel = (cards.length - 1) * Math.max(400, window.innerHeight * .72);
+      section.style.setProperty("--intro-height", heading.offsetHeight + "px");
       section.style.setProperty("--height", height + "px");
       section.style.setProperty("--radius", radius + "px");
       section.style.setProperty("--travel", travel + "px");
