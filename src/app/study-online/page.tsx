@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { BlogCTA } from "@/components/blog/BlogCTA";
 import { VirtualCampus } from "@/components/home/VirtualCampus";
 import { routes } from "@/config/routes";
+import { BenefitCube } from "./BenefitCube";
 import styles from "./Campus.module.css";
 
 export const metadata: Metadata = {
@@ -34,16 +35,12 @@ export default function StudyOnlinePage() {
         </div>
       </section>
       <VirtualCampus videoSrc="/videos/virtual-campus.mp4" showActions={false} />
-      <section className={styles.benefits} aria-labelledby="benefits-title">
-        <h2 id="benefits-title">OHLA Virtual Campus is not your average online English course!</h2>
-        <p>See why:</p>
-        <ul>{benefits.map(([icon, text]) => (
+      <BenefitCube>{benefits.map(([icon, text]) => (
           <li key={icon}>
             <Image src={`/images/virtual-campus/${icon}.webp`} width={49} height={49} alt="" />
             <p>{text}</p>
           </li>
-        ))}</ul>
-      </section>
+        ))}</BenefitCube>
       <BlogCTA heading="Contact us for promotional pricing." buttonLabel="Check prices now" />
     </main>
   );

@@ -11,8 +11,8 @@
 .page :global(#virtual-campus .virtual-media) { margin-top:0; }
 .benefits { width:min(86%,1354px); margin:auto; padding-bottom:clamp(64px,6.45vw,124px); color:#1d2251; }
 .benefits h2 { font:700 clamp(28px,1.86vw,36px)/1.06 Manrope,sans-serif; letter-spacing:-.04em; max-width:573px; text-align:center; margin:auto; }
-.benefits > p { margin:8px 0 clamp(36px,3.1vw,60px); text-align:center; font-size:clamp(18px,1.25vw,24px); }
-.benefits ul { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:18px; }
+.benefits .intro { margin:8px 0 clamp(36px,3.1vw,60px); text-align:center; font-size:clamp(18px,1.25vw,24px); }
+.benefits ul { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
 .benefits li { padding:clamp(16px,1.4vw,27px); border:1px solid #d1d8e1; border-radius:18px; box-shadow:9px 18px 21px #e3e4ff9e; min-height:clamp(265px,17.8vw,342px); }
 .benefits li p { font:400 16px/1.41 Manrope,sans-serif; color:#191919; margin-top:16px; }
 @media(max-width:1000px){.benefits ul{grid-template-columns:repeat(3,minmax(0,1fr))}.benefits li{min-height:0}.heroCopy{margin-left:8%}}
@@ -27,3 +27,43 @@
 .benefits{width:calc(100% - 48px)}.benefits ul{grid-template-columns:1fr;gap:14px}
 .benefits li{display:flex;align-items:flex-start;gap:18px;padding:20px}.benefits li img{flex:none}.benefits li p{margin:0}
 }
+
+.benefits[data-cube] { padding-bottom: 0; margin-bottom: clamp(30px, 4vw, 70px); }
+.benefits[data-cube]::after { content: ""; display: block; height: var(--travel, 0px); }
+.benefits[data-cube] .scene {
+  position: sticky;
+  top: var(--inset);
+  overflow: clip;
+  padding: clamp(10px, 2vh, 24px) 0 0;
+}
+.benefits[data-cube] .intro { margin-bottom: 0; }
+.benefits[data-cube] .stage {
+  perspective: 1100px;
+  padding: clamp(20px, 3.5vh, 40px) 0 clamp(26px, 4vh, 46px);
+}
+.benefits[data-cube] ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  width: min(84%, clamp(285px, 28vw, 405px));
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(-1 * var(--depth))) rotateX(var(--tilt, 0deg)) rotateY(var(--turn, 0deg));
+  will-change: transform;
+}
+.benefits[data-cube] li {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  min-height: clamp(270px, 32vh, 365px);
+  padding: clamp(24px, 2.2vw, 40px);
+  background: linear-gradient(145deg, white 48%, #f0f5ff);
+  box-shadow: 0 8px 16px #19265119;
+  backface-visibility: hidden;
+  transform: rotateY(var(--face-angle)) translateZ(var(--depth));
+}
+.benefits[data-cube] li img { width: clamp(52px, 4vw, 66px); height: auto; }
+.benefits[data-cube] li p { margin: 0; font-size: clamp(17px, 1.3vw, 21px); }
