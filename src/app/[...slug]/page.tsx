@@ -38,7 +38,7 @@ export function generateStaticParams() {
   const paths = [
     ...Object.keys(futurePages).filter(
       (path) => path !== routes.blog && path !== routes.contact && path !== routes.studyOnline &&
-        path !== routes.youthCamp && path !== routes.calendar2027 && path !== routes.campuses && !path.startsWith(routes.campuses + "/"),
+        path !== routes.youthCamp && path !== routes.gapYear && path !== routes.calendar2027 && path !== routes.campuses && !path.startsWith(routes.campuses + "/"),
     ),
     ...[...articles, ...allBlogArticles].map((a) => `/blog/${a.slug}`),
   ];
