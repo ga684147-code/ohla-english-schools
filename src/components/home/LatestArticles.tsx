@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import Image from "next/image";
 import { CalendarDays } from "lucide-react";
 import { articles } from "@/data/home";
@@ -8,9 +9,9 @@ export function LatestArticles() {
   return (
     <section className="latest-articles" aria-labelledby="articles-title">
       <div className="articles-inner">
-        <h2 id="articles-title">
+        <RevealHeading as="h2" id="articles-title">
           <strong>Latest</strong> Articles
-        </h2>
+        </RevealHeading>
         <div className="article-grid">
           {articles.map((article) => (
             <article className="article-card" key={article.slug}>

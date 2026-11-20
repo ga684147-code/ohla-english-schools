@@ -1,5 +1,6 @@
 "use client";
 
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { useEffect, useRef, type ReactNode } from "react";
 import styles from "./Campus.module.css";
 
@@ -76,7 +77,7 @@ export function BenefitCube({ children }: { children: ReactNode }) {
 
   return <section className={styles.benefits} ref={sectionRef} aria-labelledby="benefits-title">
     <div ref={sceneRef} className={styles.scene}>
-      <h2 id="benefits-title">OHLA Virtual Campus is not your average online English course!</h2>
+      <RevealHeading as="h2" id="benefits-title">OHLA Virtual Campus is not your average online English course!</RevealHeading>
       <p className={styles.intro}>See why:</p>
       <div className={styles.stage}><ul ref={wheelRef}>{children}</ul></div>
     </div>

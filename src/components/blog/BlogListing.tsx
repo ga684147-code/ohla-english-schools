@@ -1,4 +1,5 @@
 "use client";
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { useState } from "react";
 import { Search, X } from "lucide-react";
 import { blogArticles } from "@/data/blog";
@@ -14,9 +15,9 @@ export function BlogListing() {
     <section className={styles.listing} aria-labelledby="latest-blog-title">
       <div className={styles.listingInner}>
         <div className={styles.listingHeader}>
-          <h2 id="latest-blog-title">
+          <RevealHeading as="h2" id="latest-blog-title">
             Latest <strong>Articles</strong>
-          </h2>
+          </RevealHeading>
           <div className={styles.search}>
             <label htmlFor="blog-search" className="sr-only">
               Search articles by topic or keyword

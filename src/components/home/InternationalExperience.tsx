@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { Photo } from "@/components/ui/Photo";
 export function InternationalExperience() {
   return (
@@ -7,11 +8,11 @@ export function InternationalExperience() {
         alt="Colorful OHLA lifeguard tower on a sunny Florida beach"
       />
       <div className="international-copy">
-        <h2 id="international-title" className="gradient-text">
+        <RevealHeading as="h2" id="international-title" className="gradient-text">
           A truly
           <br /> international
           <br /> experience
-        </h2>
+        </RevealHeading>
         <p>
           OHLA welcomes students from more than <strong>70 countries</strong>,
           creating a multicultural environment to learn English and experience

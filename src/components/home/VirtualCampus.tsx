@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import styles from "./VirtualCampus.module.css";
 import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
@@ -10,7 +11,7 @@ export function VirtualCampus({ videoSrc, showActions = true }: { videoSrc?: str
       aria-labelledby="virtual-title"
     >
       <div className="virtual-copy">
-        <h2 id="virtual-title">Virtual Campus</h2>
+        <RevealHeading as="h2" id="virtual-title">Virtual Campus</RevealHeading>
         <h3>A classroom experience<br />wherever you are</h3>
         <h4>Live interactive classes with<br />OHLA-certified teachers!</h4>
         <p>

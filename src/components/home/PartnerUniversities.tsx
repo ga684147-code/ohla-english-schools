@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
 import { routes } from "@/config/routes";
@@ -24,9 +25,9 @@ export function PartnerUniversities() {
             <br /> and colleges
           </span>
         </div>
-        <h2 id="partner-title">
+        <RevealHeading as="h2" id="partner-title">
           Your English can open the doors to a university in the United States
-        </h2>
+        </RevealHeading>
         <p>
           OHLA partners with{" "}
           <strong>more than 200 universities and colleges</strong>. Qualified

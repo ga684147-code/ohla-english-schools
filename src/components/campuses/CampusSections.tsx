@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
@@ -14,7 +15,7 @@ export function CampusHero({ campus }: { campus?: Campus }) {
     <div className={styles.heroInner}>
       <div className={styles.titleRow}>
         {!campus && <span className={styles.pinCircle}><MapPin aria-hidden="true" /></span>}
-        <h1 id="campus-title">{campus ? title.split(" ").map(word => <span key={word}>{word}</span>) : title}</h1>
+        <RevealHeading as="h1" id="campus-title">{campus ? title.split(" ").map(word => <span key={word}>{word}</span>) : title}</RevealHeading>
       </div>
       {campus ? <p className={styles.badge}><MapPin size={20} aria-hidden="true" />{campus.region}</p> : <>
         <p className={styles.lead}>Our campuses are located in metropolitan areas throughout Florida.</p>
@@ -30,7 +31,7 @@ export function CampusCards({ items, related, buttonLabel = "Learn more" }: {
   buttonLabel?: string;
 }) {
   return <section className={related ? styles.related : styles.directory} aria-label={related ? "See also" : "Explore our Florida campuses"}>
-    {related && <h2 className={styles.seeAlso}>See also</h2>}
+    {related && <RevealHeading as="h2" className={styles.seeAlso}>See also</RevealHeading>}
     <div className={styles.cards}>{items.map(campus => <article className={styles.card} key={campus.href}>
       <div className={styles.cardPhoto}>
         <Photo name={`contact-${campus.image}`} alt={`Inside the OHLA ${campus.name} campus`} sizes="(max-width: 740px) 90vw, 25vw" />

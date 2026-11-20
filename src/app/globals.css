@@ -2392,3 +2392,26 @@ button {
     width: 100%;
   }
 }
+
+@keyframes reveal-heading-word {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-revealing] .reveal-word {
+    display: inline-block;
+    animation: reveal-heading-word .5s cubic-bezier(.16, 1, .3, 1) both;
+  }
+  .gradient-text[data-revealing], .virtual-copy h2[data-revealing] {
+    background-clip: border-box;
+    background-image: none;
+  }
+  .gradient-text[data-revealing] .reveal-word {
+    background-image: linear-gradient(90deg, var(--navy), var(--blue));
+    background-clip: text;
+  }
+  .virtual-copy h2[data-revealing] .reveal-word {
+    background-image: linear-gradient(90deg, #9b1c20, #ce3035);
+    background-clip: text;
+  }
+}

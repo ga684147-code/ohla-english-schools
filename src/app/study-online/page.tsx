@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
@@ -29,7 +30,7 @@ export default function StudyOnlinePage() {
           <Image src="/images/virtual-campus/hero.webp" alt="" fill sizes="100vw" fetchPriority="high" loading="eager" />
         </picture>
         <div className={styles.heroCopy}>
-          <h1 id="online-title">Study English online with OHLA</h1>
+          <RevealHeading as="h1" id="online-title">Study English online with OHLA</RevealHeading>
           <p>Live classes with OHLA teachers</p>
           <Button href={routes.apply}>Apply now</Button>
         </div>

@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { futurePages, routes } from "@/config/routes";
@@ -23,7 +24,7 @@ export default async function FuturePage({
   return (
     <main id="main" className="future-page">
       <p className="eyebrow">OHLA English Schools</p>
-      <h1>{title}</h1>
+      <RevealHeading as="h1">{title}</RevealHeading>
       <p>This page is planned for a future phase of the website.</p>
       <p>
         For assistance, call <a href="tel:+13053794027">+1-305-379-4027</a>.

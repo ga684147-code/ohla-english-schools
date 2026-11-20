@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Photo } from "@/components/ui/Photo";
@@ -72,7 +73,7 @@ export default function ContactPage() {
               width={54}
               height={54}
             />
-            <h1 id="contact-title">Contact Us</h1>
+            <RevealHeading as="h1" id="contact-title">Contact Us</RevealHeading>
           </div>
           <p className={styles.description}>
             Do you have questions about our English programs or need information
@@ -148,7 +149,7 @@ export default function ContactPage() {
                 />
               </div>
               <div className={styles.campusCopy}>
-                <h2>{campus.name}</h2>
+                <RevealHeading as="h2">{campus.name}</RevealHeading>
                 <address>{campus.address}</address>
                 <p>{campus.description}</p>
               </div>

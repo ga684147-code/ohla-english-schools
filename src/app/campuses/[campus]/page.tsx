@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogCTA } from "@/components/blog/BlogCTA";
@@ -33,7 +34,7 @@ export default async function CampusPage(props: PageProps) {
         <div className={styles.cityPhoto}><Photo name={`campuses/${campus.image}`} alt={campus.photoAlt} sizes="(max-width: 740px) 92vw, 34vw" /></div>
       </div>
       <div className={styles.about}>
-        <h2 id="about-campus">{campus.name}</h2>
+        <RevealHeading as="h2" id="about-campus">{campus.name}</RevealHeading>
         <address>{campus.address}</address>
         <p>{campus.introduction}</p>
         {campus.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}

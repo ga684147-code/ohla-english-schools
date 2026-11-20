@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import styles from "./WhyOHLA.module.css";
 import Image from "next/image";
 import { features } from "@/data/home";
@@ -5,9 +6,9 @@ export function WhyOHLA() {
   return (
     <section id="why-ohla" className={`${styles.section} why-ohla content-container`} aria-labelledby="why-title">
       <div className="section-heading">
-        <h2 className="gradient-text" id="why-title">
+        <RevealHeading as="h2" className="gradient-text" id="why-title">
           Why study at OHLA?
-        </h2>
+        </RevealHeading>
         <p>
           An international experience that combines English learning, student
           support, and academic opportunities in the United States.

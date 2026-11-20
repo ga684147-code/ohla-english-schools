@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { Photo } from "@/components/ui/Photo";
 import { Button } from "@/components/ui/Button";
 import { featuredArticle } from "@/data/blog";
@@ -14,7 +15,7 @@ export function BlogHero() {
       />
       <div className={styles.heroShade} />
       <div className={styles.heroInner}>
-        <h1 id="blog-title">Ohla Blog</h1>
+        <RevealHeading as="h1" id="blog-title">Ohla Blog</RevealHeading>
         <p className={styles.intro}>
           Content for those who want to learn, study, and live in the United
           States
@@ -30,7 +31,7 @@ export function BlogHero() {
           </div>
           <div className={styles.featuredCopy}>
             <ArticleMeta article={featuredArticle} />
-            <h2>{featuredArticle.title}</h2>
+            <RevealHeading as="h2">{featuredArticle.title}</RevealHeading>
             <p>{featuredArticle.description}</p>
             <Button href={`${routes.blog}/${featuredArticle.slug}`}>
               Read article

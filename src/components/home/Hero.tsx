@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { routes } from "@/config/routes";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
@@ -11,11 +12,11 @@ export function Hero() {
         <Image src="/images/hero.webp" alt="OHLA student holding a red notebook by the New York waterfront" fill sizes="100vw" loading="eager" fetchPriority="high" />
       </picture>
       <div className="hero-content">
-        <h1 id="hero-title" className="gradient-text">
+        <RevealHeading as="h1" id="hero-title" className="gradient-text">
           Study English in
           <br className="desktop-break" /> the United States or virtually with
           OHLA
-        </h1>
+        </RevealHeading>
         <p>
           Founded in 1998, OHLA is an award-winning English school in Florida,
           with experience teaching international students and programs that can

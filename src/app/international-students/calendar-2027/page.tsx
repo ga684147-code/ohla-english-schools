@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import type { Metadata } from "next";
 import { VirtualCampusTab } from "@/components/campuses/CampusSections";
 import { Button } from "@/components/ui/Button";
@@ -16,7 +17,7 @@ export default function CalendarPage() {
     <section className={styles.hero} aria-labelledby="calendar-title">
       <Photo name="calendar/hero" priority />
       <div className={styles.heroCopy}>
-        <h1 id="calendar-title">Academic<br />Calendar 2027</h1>
+        <RevealHeading as="h1" id="calendar-title">Academic<br />Calendar 2027</RevealHeading>
         <p>Plan your English journey with OHLA: see when sessions start, other start dates and the days we have no class.</p>
       </div>
     </section>
@@ -29,7 +30,7 @@ export default function CalendarPage() {
       </ul>
     </section>
     <section className={styles.contact} aria-labelledby="calendar-contact">
-      <div><h2 id="calendar-contact">Ready to start your experience with OHLA?</h2>
+      <div><RevealHeading as="h2" id="calendar-contact">Ready to start your experience with OHLA?</RevealHeading>
         <p>Talk to our team and find out which program best matches your goals.</p></div>
       <Button href={routes.contact}>Talk to a consultant</Button>
     </section>

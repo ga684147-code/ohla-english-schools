@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { Photo } from "@/components/ui/Photo";
 import { Button } from "@/components/ui/Button";
 import { routes } from "@/config/routes";
@@ -23,7 +24,7 @@ export function BlogCTA({
       </div>
       <div className={styles.ctaShade} />
       <div className={styles.ctaCopy}>
-        <h2 id="blog-contact-title">{heading}</h2>
+        <RevealHeading as="h2" id="blog-contact-title">{heading}</RevealHeading>
         <Button href={href} variant="outline">
           {buttonLabel}
         </Button>

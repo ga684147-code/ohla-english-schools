@@ -1,4 +1,5 @@
 "use client";
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { useState } from "react";
 import Image from "next/image";
 import { countries } from "@/data/home";
@@ -9,7 +10,7 @@ export function Testimonials() {
       <div className="testimonial-inner">
         <div className="testimonial-copy">
           <p className="eyebrow">Testimonials</p>
-          <h2 id="testimonials-title">What our students say</h2>
+          <RevealHeading as="h2" id="testimonials-title">What our students say</RevealHeading>
           <div
             role="tablist"
             aria-label="Student country"

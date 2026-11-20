@@ -1,5 +1,6 @@
 "use client";
 
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { countries, languages } from "@/data/contact";
@@ -176,9 +177,9 @@ export function ContactForm() {
     >
       <div className={styles.formHeading}>
         <p>CONTACT OHLA</p>
-        <h2 id="contact-form-title">
+        <RevealHeading as="h2" id="contact-form-title">
           Please provide the following information
-        </h2>
+        </RevealHeading>
         <span>* indicates required fields</span>
       </div>
       <form className={styles.form} onSubmit={submit}>

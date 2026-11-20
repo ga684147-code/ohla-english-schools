@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -43,7 +44,7 @@ export default function YouthCampPage() {
     <section className={styles.hero} aria-labelledby="camp-title">
       <Photo name="youth-camp/hero" priority />
       <div className={styles.heroCopy}>
-        <h1 id="camp-title">Youth <span>Camp 2027</span></h1>
+        <RevealHeading as="h1" id="camp-title">Youth <span>Camp 2027</span></RevealHeading>
         <p className={styles.lead}>Learn English.<br />Experience Florida.</p>
         <p className={styles.memories}>Create Memories for Life.</p>
         <p className={styles.intro}>Two unforgettable destinations. English lessons, excursions and international friendships in Miami &amp; Orlando.</p>
@@ -68,7 +69,7 @@ export default function YouthCampPage() {
       <li key={icon}><CampIcon name={icon} size={60} /><h3>{title}</h3><p>{text}</p></li>
     )}</BenefitOrbit>
     <section className={styles.day} aria-labelledby="camp-day">
-      <h2 id="camp-day">A typical day at OHLA</h2>
+      <RevealHeading as="h2" id="camp-day">A typical day at OHLA</RevealHeading>
       <p className={styles.subtitle}>English lessons, exciting activities and time to connect.</p>
       <ol className={styles.schedule}>{activities.map(item =>
         <li key={item.photo}>
@@ -80,7 +81,7 @@ export default function YouthCampPage() {
     <section className={styles.contact} aria-labelledby="camp-contact">
       <div className={styles.contactPhoto}><Photo name="youth-camp/contact" sizes="65vw" /></div>
       <div className={styles.contactCopy}>
-        <h2 id="camp-contact">Ready for youth <span>camp 2027?</span></h2>
+        <RevealHeading as="h2" id="camp-contact">Ready for youth <span>camp 2027?</span></RevealHeading>
         <p>Let’s plan your group’s Florida adventure.</p>
         <p>For information and pricing, contact <a href="mailto:camps@ohla.com">camps@ohla.com</a> with your destination, arrival date, group size, number of leaders, and students’ age range. We’ll be happy to create a personalized quote for your group!</p>
       </div>

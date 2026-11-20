@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { ProgramStack } from "./ProgramStack";
 import styles from "./ProgramCards.module.css";
 import { programs } from "@/data/home";
@@ -11,10 +12,10 @@ export function ProgramCards() {
       aria-labelledby="programs-title"
     >
       <div className="section-heading">
-        <h2 id="programs-title">
+        <RevealHeading as="h2" id="programs-title">
           Find the ideal
           <br /> program for you
-        </h2>
+        </RevealHeading>
         <p>
           Choose your experience according to your goals, availability, and
           academic plans.

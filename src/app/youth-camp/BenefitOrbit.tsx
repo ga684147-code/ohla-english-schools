@@ -1,5 +1,6 @@
 "use client";
 
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { useEffect, useRef, type ReactNode } from "react";
 import styles from "./Overview.module.css";
 
@@ -92,7 +93,7 @@ export function BenefitOrbit({ children }: { children: ReactNode }) {
   return <section ref={root} className={styles.why} aria-labelledby="why-camp">
     <div ref={sceneRef} className={styles.scene}>
       <div ref={intro} className={styles.orbitIntro}>
-        <h2 id="why-camp">Why choose OHLA?</h2>
+        <RevealHeading as="h2" id="why-camp">Why choose OHLA?</RevealHeading>
         <p className={styles.subtitle}>Learn beyond the classroom and discover the best of Florida.</p>
       </div>
       <div className={styles.stage}>

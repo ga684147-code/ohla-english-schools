@@ -32,7 +32,7 @@
   line-height: .95;
   letter-spacing: -.042em;
 }
-.titleRow h1 span { display: block; }
+.titleRow h1 > span:not(:global(.reveal-word)) { display: block; }
 .pinCircle {
   display: grid;
   place-items: center;

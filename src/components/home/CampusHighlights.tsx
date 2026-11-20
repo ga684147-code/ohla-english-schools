@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/ui/RevealHeading";
 import { ChevronRight } from "lucide-react";
 import styles from "./LevelCard.module.css";
 import { Button } from "@/components/ui/Button";
@@ -16,11 +17,11 @@ export function CampusHighlights() {
           sizes="(max-width:767px) 100vw,50vw"
         />
         <div className="campus-copy">
-          <h2>
+          <RevealHeading as="h2">
             Live your
             <br /> experience
             <br /> in Florida
-          </h2>
+          </RevealHeading>
           <Button href={routes.campuses} variant="blue">
             Discover our campuses
           </Button>
@@ -36,7 +37,7 @@ export function CampusHighlights() {
           />
         </picture>
         <div className="level-copy">
-          <h2>Discover your English level</h2>
+          <RevealHeading as="h2">Discover your English level</RevealHeading>
           <p>
             Take OHLA&apos;s free test and get a reference of your current level
             before choosing a program.
