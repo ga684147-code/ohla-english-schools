@@ -27,8 +27,12 @@ const colleges = [
 export default function GapYearPage() {
   return <main id="main" className={styles.page}>
     <section className={styles.hero}>
-      <Photo name="gap-year/hero" priority />
+      <picture className={styles.heroPhoto}>
+        <source media="(max-width: 760px)" srcSet="/images/gap-year/hero-mobile.webp" />
+        <Image src="/images/gap-year/hero.webp" alt="" fill sizes="100vw" loading="eager" fetchPriority="high" />
+      </picture>
       <RevealHeading as="h1">Gap Year<br />Program</RevealHeading>
+      <Button className={styles.heroConsult} href={routes.contact} variant="outline">Consult now</Button>
     </section>
     <section aria-labelledby="gap-intro">
       <div className={styles.ribbon}>
@@ -48,7 +52,12 @@ export default function GapYearPage() {
     <section className={styles.highlights} aria-label="The Gap Year experience">
       <div className={styles.gallery}>{[1, 2, 3].map(n => <div key={n}><Photo name={`gap-year/gallery-${n}`} sizes="33vw" /></div>)}</div>
       <ul className={styles.benefits}>{benefits.map(([title, text], i) => <li key={title}>
-        <h3>{title}</h3><p>{text}</p><div className={styles.art}><Photo name={`gap-year/benefit-${i + 1}`} sizes="(max-width: 760px) 78vw, 27vw" /></div>
+        <span className={styles.cardNumber} aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+        <h3>{title}</h3><p>{text}</p>
+        <picture className={styles.art}>
+          {i === 2 && <source media="(max-width: 760px)" srcSet="/images/gap-year/benefit-3-mobile.webp" />}
+          <Image src={`/images/gap-year/benefit-${i + 1}.webp`} alt="" fill sizes="(max-width: 760px) 80vw, 27vw" />
+        </picture>
       </li>)}</ul>
     </section>
     <ProgramDates />
