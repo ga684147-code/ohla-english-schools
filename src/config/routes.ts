@@ -41,9 +41,13 @@ export const routes = {
   studentAccommodation: "/international-students/accommodation",
   studentServices: "/international-students/student-services",
 } as const;
+const studentPages = new Set<string>([
+  routes.internationalStudents, routes.f1Students, routes.f1Transfer, routes.visaI20, routes.studentAccommodation,
+]);
+
 export const futurePages: Record<string, string> = Object.fromEntries(
   Object.entries(routes)
-    .filter(([key]) => key !== "home" && key !== "whatsapp")
+    .filter(([key, path]) => key !== "home" && key !== "whatsapp" && !studentPages.has(path))
     .map(([key, path]) => [
       path,
       key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase()),

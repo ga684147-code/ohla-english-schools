@@ -1,0 +1,140 @@
+.page {
+  --section-space: clamp(56px, 5.6vw, 108px);
+  --body-gray: #515b6c;
+  color: var(--navy);
+  overflow: clip;
+}
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(530px, 47.3vw, 908px);
+  background: #111643;
+  color: white;
+}
+.hero > img { z-index: -2; }
+.heroInner { width: min(70.52%, 1354px); margin: auto; padding: clamp(118px, 8.3vw, 160px) 0 clamp(38px, 5.5vw, 106px); }
+.heroLabel { font-weight: 700; font-size: clamp(16px, 1.3vw, 25px); text-transform: uppercase; letter-spacing: .16em; }
+.hero h1 { font-size: clamp(39px, 3.23vw, 62px); line-height: 1.01; letter-spacing: -.04em; max-width: 14em; margin: .35em 0; }
+.heroText { font-size: clamp(17px, 1.3vw, 25px); line-height: 1.42; max-width: 28em; color: #e4e9fa; }
+.hero[data-page="overview"] .heroText { font-size: clamp(16px, 1.04vw, 20px); max-width: 37em; line-height: 1.55; }
+.hero[data-page="students"] h1 { max-width: 10em; margin-bottom: 1.22em; }
+.hero[data-page="students"] .heroInner { width: min(67%, 1284px); }
+.hero[data-page="housing"] h1 { max-width: 11.45em; }
+.hero[data-page="transfer"] .heroLabel, .hero[data-page="visa"] .heroLabel { font-weight: 600; letter-spacing: 0; }
+.transferLine { display: block; margin-top: .48em; }
+.heroActions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: clamp(20px, 1.9vw, 36px); }
+.heroActions :global(.button) { min-width: clamp(190px, 17.7vw, 340px); min-height: clamp(44px, 3vw, 58px); font-size: clamp(14px, .85vw, 16px); }
+.hero[data-page="overview"] .heroActions :global(.button) { min-width: clamp(170px, 13.5vw, 260px); }
+.heroActions :global(.button--red) { background: #e0001b; }
+.heroActions :global(.button--outline) { border-color: #ffffff70; }
+.heroActions svg, .advisor :global(.button) svg { display: none; }
+.heading { text-align: center; }
+.heading h2 { font-size: clamp(30px, 2.4vw, 46px); line-height: 1.06; letter-spacing: -.035em; }
+.kicker { margin-bottom: .7em; color: #d90f22; font-size: clamp(13px, .9vw, 18px); font-weight: 700; text-transform: uppercase; }
+.summary { max-width: 38em; margin: .8em auto 0; color: var(--body-gray); font-size: clamp(16px, 1.04vw, 20px); line-height: 1.5; }
+.page ol { margin: 0; padding: 0; list-style: none; }
+.page h3 { letter-spacing: -.025em; }
+.overview, .f1Journey { width: min(80%, 1536px); margin: 0 auto; padding: clamp(50px, 4vw, 78px) 0 var(--section-space); }
+.overview .kicker { font-size: clamp(13px, .72vw, 14px); letter-spacing: .13em; }
+.overview .summary { font-size: clamp(16px, .94vw, 18px); }
+.page .journey {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(16px, 1.25vw, 24px);
+  margin-top: clamp(32px, 2.8vw, 54px);
+}
+.journey li, .comparison li { padding: clamp(22px, 1.67vw, 32px); background: #f6f7fb; border: 1px solid #e0e4ef; border-radius: 16px; }
+.journey li > span, .stepNumber { display: inline-grid; place-items: center; width: 2.45em; aspect-ratio: 1; border-radius: 50%; font-weight: 700; color: white; background: var(--navy); }
+.journey li:nth-child(even) > span { background: #9b1c20; }
+.journey h3, .darkCards h3, .comparison h3 { font-size: clamp(18px, 1.1vw, 22px); margin: .75em 0 .52em; }
+.journey p, .darkCards p, .comparison li p { font-size: clamp(15px, .8vw, 16px); line-height: 1.55; color: var(--body-gray); }
+.f1Journey { padding-top: var(--section-space); padding-bottom: clamp(48px, 5vw, 96px); }
+.f1Layout { display: grid; grid-template-columns: 42.5fr 56fr; gap: clamp(18px, 1.45vw, 28px); margin-top: clamp(38px, 4.6vw, 88px); }
+.f1Photo, .housePhoto, .docPhoto { position: relative; overflow: hidden; border-radius: clamp(10px, .85vw, 17px); }
+.f1Cards, .houseBenefits { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: clamp(14px, 1.15vw, 22px); }
+.f1Cards li, .houseBenefits li { padding: clamp(20px, 1.85vw, 36px); border: 1px solid #d1d8e1; border-radius: 17px; box-shadow: 0 8px 18px #1d225114; }
+.f1Cards li { min-height: clamp(175px, 15.9vw, 306px); }
+.icon { display: block; width: clamp(32px, 2.55vw, 49px); height: auto; aspect-ratio: 1; padding: .34em; object-fit: contain; background: #d3f1fd; border-radius: 8px; }
+.f1Cards h3, .houseBenefits h3 { margin: .7em 0 .45em; font-size: clamp(19px, 1.3vw, 25px); }
+.f1Cards p, .advisor p { font-size: clamp(16px, 1.25vw, 24px); line-height: 1.38; color: #4b556b; }
+.advisor { display: flex; align-items: center; justify-content: space-between; gap: 32px; width: min(79%, 1510px); margin: 0 auto var(--section-space); padding: clamp(28px, 2.6vw, 50px) clamp(24px, 3vw, 58px); background: #20285e; color: white; border-radius: clamp(13px, 1vw, 20px); }
+.advisor h2 { font-size: clamp(25px, 2vw, 40px); color: inherit; line-height: 1.12; }
+.advisor p { margin-top: .45em; color: #e0e3f3; }
+.advisor :global(.button) { min-width: clamp(200px, 18.7vw, 360px); background: #df2634; color: white; }
+.housingOptions, .criteria { width: min(70.5%, 1354px); margin: 0 auto; padding-top: clamp(66px, 7.1vw, 136px); scroll-margin-top: 70px; }
+.housingOptions .summary { max-width: 34em; }
+.darkCards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(16px, 1.05vw, 20px); margin-top: clamp(32px, 3.2vw, 62px); }
+.darkCards li { background: var(--navy); color: white; padding: clamp(20px, 1.55vw, 30px); min-height: clamp(165px, 12.4vw, 238px); border-radius: clamp(12px, .85vw, 16px); }
+.darkCards .icon { width: clamp(24px, 1.51vw, 29px); padding: 0; background: transparent; border-radius: 0; }
+.darkCards p { color: #e1e3f3; }
+.homestay { display: grid; grid-template-columns: 58fr 40fr; align-items: center; gap: clamp(24px, 2.1vw, 40px); width: min(70.5%, 1354px); margin: clamp(38px, 3.3vw, 64px) auto var(--section-space); }
+.housePhoto { aspect-ratio: 781/741; }
+.homestay .heading { text-align: left; }
+.benefitSubtitle { font-weight: 400; font-size: .75em; }
+.houseBenefits { margin-top: clamp(24px, 2.25vw, 44px); }
+.houseBenefits li { padding: clamp(16px, 1.4vw, 27px); min-height: clamp(140px, 11vw, 216px); }
+.houseBenefits h3 { margin-top: 1em; font-size: clamp(16px, 1.05vw, 20px); color: #191919; }
+.airport { position: absolute; right: 2.5%; bottom: 2.5%; width: 48%; padding: clamp(18px, 1.68vw, 32px); border-radius: 14px; color: white; background: #9b1c20; }
+.airport strong { font-size: clamp(14px, .92vw, 18px); }
+.airport h3 { font-size: clamp(21px, 1.45vw, 28px); line-height: 1.1; margin: .35em 0 .65em; }
+.airport p { font-size: clamp(14px, .8vw, 15px); line-height: 1.5; }
+.comparison { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(30px, 4vw, 77px); width: min(52%, 1000px); margin: clamp(48px, 4.5vw, 86px) auto; }
+.comparison .heading, .docCopy .heading { text-align: left; }
+.comparison .summary, .docCopy .summary { margin-inline: 0; }
+.comparison li + li { margin-top: 12px; }
+.comparison li > span { color: #c30d24; font-weight: 700; font-size: clamp(13px,.8vw,16px); text-transform: uppercase; }
+.steps { background: #f2f4fa; padding: clamp(48px, 3.6vw, 70px) 0 var(--section-space); }
+.steps ol { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: clamp(18px, 1.45vw, 28px); width: min(68%, 1305px); margin: clamp(34px, 2.2vw, 44px) auto 0; }
+.steps li { position: relative; }
+.steps li:not(:last-child)::after { content: ""; position: absolute; height: 2px; top: clamp(20px, 1.6vw, 31px); left: clamp(56px, 4.7vw, 90px); right: 0; background: #d4dbea; }
+.stepNumber { background: #df2032; font-size: clamp(18px, 1.45vw, 28px); width: 2.25em; }
+.steps h3 { margin: .85em 0 .4em; font-size: clamp(18px, 1.24vw, 24px); line-height: 1.18; }
+.steps li p, .docCopy li p { color: var(--body-gray); font-size: clamp(15px, .96vw, 19px); line-height: 1.45; }
+.criteria { width: min(59%, 1132px); padding: clamp(54px, 4.2vw, 80px) 0 clamp(38px, 2.7vw, 52px); }
+.criteria .darkCards { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(30px, 2.7vw, 52px); }
+.documents { display: grid; grid-template-columns: 53fr 41fr; align-items: center; gap: clamp(32px, 3.5vw, 68px); width: min(78%, 1498px); margin: clamp(48px, 4.5vw, 86px) auto clamp(38px, 3.2vw, 62px); }
+.docPhoto { aspect-ratio: 1.08; }
+.docCopy ul { margin-top: 1.35em; }
+.docCopy li { display: flex; align-items: center; gap: clamp(12px, 1vw, 20px); border: 1px solid #d1d8e1; border-radius: 12px; padding: clamp(12px, 1vw, 20px); }
+.docCopy li .icon { flex: none; }
+.docCopy li + li { margin-top: .6em; }
+.docCopy li h3 { font-size: clamp(17px, 1.15vw, 22px); }
+.docCopy li p { margin-top: .12em; }
+@media (max-width: 1150px) {
+  .heroInner, .hero[data-page="students"] .heroInner { width: 84%; }
+  .overview, .housingOptions, .homestay, .f1Journey, .advisor, .documents, .steps ol { width: 89%; }
+  .comparison, .criteria { width: 78%; }
+  .airport { width: 61%; }
+}
+@media (max-width: 760px) {
+  .hero { min-height: min(760px, max(600px, 86svh)); }
+  .hero > img { object-position: 66% center; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, #111440fa 0%, #111440de 44%, #11144018 100%); }
+  .heroInner, .hero[data-page="students"] .heroInner { width: 88%; margin: auto auto 0; padding: 154px 0 44px; }
+  .heroLabel { font-size: 15px; }
+  .hero h1 { font-size: clamp(34px, 8.5vw, 48px); }
+  .hero[data-page="students"] h1 { margin-bottom: .5em; }
+  .heroText { font-size: 16px; }
+  .heroActions { gap: 10px; }
+  .heroActions :global(.button), .hero[data-page="overview"] .heroActions :global(.button) { min-width: 0; }
+  .page .journey, .darkCards, .criteria .darkCards, .steps ol { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .f1Layout, .homestay, .documents, .comparison { grid-template-columns: 1fr; }
+  .f1Photo { aspect-ratio: 1.65; }
+  .criteria, .comparison { width: 89%; }
+  .docPhoto { aspect-ratio: 1.45; }
+  .steps li:nth-child(2)::after { display: none; }
+  .advisor { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .airport { width: min(67%, 310px); }
+}
+@media (max-width: 480px) {
+  .page .journey, .f1Cards { grid-template-columns: 1fr; }
+  .darkCards, .criteria .darkCards { grid-template-columns: 1fr; }
+  .f1Cards li, .darkCards li { min-height: 0; }
+  .housePhoto { display: flex; flex-direction: column; aspect-ratio: auto; }
+  .housePhoto > img { position: relative !important; width: 100%; aspect-ratio: 1.2; height: auto !important; }
+  .airport { position: static; width: 100%; border-radius: 0; }
+  .steps ol { column-gap: 20px; row-gap: 26px; }
+}
