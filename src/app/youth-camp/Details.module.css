@@ -1,0 +1,112 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: clamp(510px, 52.32vw, 1005px);
+  background: #1d2251;
+  color: white;
+}
+.hero > img { z-index: -2; object-fit: cover; }
+.heroCopy { width: min(69%, 1332px); margin: auto; padding-block: 115px 70px; }
+.hero h1 { margin: 0; color: #f6f6f6; font-size: clamp(44px, 4.17vw, 80px); line-height: 1.05; text-transform: uppercase; letter-spacing: -.025em; }
+.gold { color: #e6c37e; }
+.hero p { max-width: 23em; margin: .85em 0 0; color: #eaebf0; font: 400 clamp(16px, 1.31vw, 25px)/1.35 Inter, sans-serif; }
+.detail[data-camp="miami"] .hero p, .detail[data-camp="accommodation"] .hero p { max-width: 17.2em; }
+.detail[data-camp="enrollment"] .hero p { max-width: 14em; }
+
+.detail nav img { width: 96%; height: 96%; filter: brightness(0) saturate(100%) invert(13%) sepia(34%) saturate(1340%) hue-rotate(194deg) brightness(94%); }
+.panel {
+  width: min(96.4%, 1853px);
+  margin-inline: auto;
+  padding: clamp(24px, 2.15vw, 42px) clamp(18px, 3.12vw, 60px) clamp(42px, 4.4vw, 85px);
+  border-radius: clamp(18px, 1.88vw, 36px);
+  background: #f4f8ff;
+}
+.cards { display: flex; align-items: stretch; justify-content: center; gap: clamp(8px, .65vw, 13px); }
+.card { flex: 0 1 567px; min-width: 0; max-width: min(29.55vw, 567px); overflow: hidden; border-radius: 16px; background: #fff; }
+.cardPhoto { position: relative; aspect-ratio: 1.76; }
+.cardPhoto img, .student img { object-fit: cover; }
+.cardBody { padding: clamp(23px, 3.65vw, 70px) clamp(16px, 3.4vw, 65px) clamp(26px, 3vw, 58px); }
+.card .cardTitle, .stepsCard .cardTitle {
+  color: #16204d; font: 700 clamp(23px, 2.08vw, 40px)/1 Inter, sans-serif;
+  text-transform: uppercase; letter-spacing: -.025em; margin: 0;
+}
+.cardTitle > span:not(:global(.reveal-word)) { color: #9b1c20; display: block; }
+.iconList { padding: 0; margin: 0; list-style: none; }
+.iconList li { display: flex; align-items: flex-start; gap: .55em; line-height: 1.34; }
+.iconList img { flex: 0 0 auto; width: 1.13em; height: 1.13em; object-fit: contain; margin-top: .08em; }
+.facts, .lodgingList { margin-top: clamp(16px, 1.4vw, 27px); font-size: clamp(15px, 1.25vw, 24px); font-weight: 700; }
+.facts li + li, .lodgingList li + li { margin-top: .55em; }
+.card .divider { display: flex; align-items: center; justify-content: center; gap: .6em; margin: clamp(28px, 3.2vw, 61px) calc(-1 * clamp(10px, 2.7vw, 52px)) 1.05em; text-transform: uppercase; text-align: center; font-size: clamp(14px, 1.25vw, 24px); line-height: 1.2; }
+.divider::before, .divider::after { content: ""; flex: 1 0 9%; height: 1px; background: #d8dce4; }
+.highlights { color: #53627b; font-size: clamp(14px, 1.04vw, 20px); font-weight: 500; }
+.highlights li + li { margin-top: .22em; }
+.parkLogos { width: 100%; height: auto; object-fit: contain; }
+.workshops { margin: 1.6em 0 .9em; text-align: center; text-transform: uppercase; font-size: clamp(14px, 1.25vw, 24px); }
+.parkLogos ~ .highlights li { margin-bottom: .85em; color: #16204d; }
+
+.feature {
+  width: min(90.5%, 1738px); min-height: clamp(280px, 27.35vw, 525px);
+  margin: clamp(24px, 2.4vw, 46px) auto 0; border-radius: clamp(12px, 1.05vw, 20px);
+  position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center;
+  padding: clamp(32px, 4vw, 77px) clamp(28px, 6.9vw, 133px); background: #1d2251; color: #fff;
+}
+.featurePhoto { position: absolute; inset: 0; z-index: -1; }
+.featurePhoto img { object-fit: cover; object-position: right center; }
+.featureCopy { width: 50%; }
+.featureCopy h2 { font-size: clamp(28px, 3.38vw, 65px); color: white; text-transform: uppercase; letter-spacing: -.04em; }
+.featureCopy .magicTitle { font-size: clamp(25px, 2.6vw, 50px); text-transform: none; line-height: 1.04; }
+.featureCopy p { margin: .9em 0 0; font-size: clamp(15px, 1.3vw, 25px); line-height: 1.35; }
+.included { display: grid; grid-template-columns: auto auto; gap: .55em 1.1em; margin-top: 1.2em; font-size: clamp(14px, 1.25vw, 24px); }
+.enrollment { display: grid; grid-template-columns: 1.04fr 1fr; gap: clamp(8px, .7vw, 14px); max-width: min(70vw, 1350px); margin: clamp(12px, 2.7vw, 52px) auto; }
+.student { position: relative; overflow: hidden; border-radius: 16px; }
+.stepsCard { background: white; border-radius: 16px; padding: clamp(22px, 2.4vw, 46px) clamp(24px, 3.2vw, 62px); }
+.steps { list-style: none; padding: 0; margin: clamp(24px, 2vw, 38px) 0 0; }
+.steps li { position: relative; display: flex; align-items: flex-start; gap: .85em; padding-bottom: .95em; }
+.steps li:last-child { padding-bottom: 0; }
+.steps li:not(:last-child)::before { content: ""; position: absolute; left: calc(clamp(40px, 3.65vw, 70px) / 2); top: 15px; bottom: -6px; border-left: 1px dotted #d0aa75; }
+.stepNumber { position: relative; display: grid; place-items: center; flex: 0 0 auto; width: clamp(40px, 3.65vw, 70px); aspect-ratio: 1; border: 2px solid #1d2251; border-radius: 50%; background: #fff; color: #4b5fb9; font-weight: 800; }
+.steps h3 { font-size: clamp(15px, 1.25vw, 24px); margin: .15em 0; }
+.steps p { margin: 0; line-height: 1.3; font-size: clamp(14px, 1.04vw, 20px); }
+
+@media (min-width: 1101px) {
+  .detail[data-camp="orlando"] .panel { width: min(90.5%, 1738px); }
+  .detail[data-camp="orlando"] .cardTitle { font-size: clamp(28px, 2.6vw, 50px); }
+  .detail[data-camp="orlando"] .feature + section { margin-top: clamp(12px, .8vw, 16px); }
+  .detail:is([data-camp="miami"], [data-camp="orlando"]) .cardBody { min-height: min(42.8vw, 823px); }
+  .detail:is([data-camp="accommodation"], [data-camp="enrollment"]) .panel { padding-bottom: min(14vw, 269px); }
+  .detail:is([data-camp="accommodation"], [data-camp="enrollment"]) .feature { margin-top: max(-7.5vw, -144px); }
+  .detail[data-camp="accommodation"] .cardBody { min-height: min(33.35vw, 640px); }
+  .enrollment { min-height: min(44.53vw, 855px); }
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .card { max-width: 42%; }
+  .cardBody { padding-inline: 20px; }
+  .card .divider { margin-inline: -12px; }
+  .enrollment { max-width: 95%; }
+  .featureCopy { width: 57%; }
+}
+@media (max-width: 760px) {
+  .hero { min-height: clamp(450px, 116vw, 600px); align-items: end; }
+  .hero > img { object-position: 66% center; }
+  .hero::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(0deg, #192250f5, #1922509c 32%, transparent 70%); }
+  .heroCopy { width: 89%; padding-block: 170px 38px; }
+  .hero h1 { font-size: clamp(31px, 8.3vw, 54px); }
+  .panel { width: 94%; padding: 14px; }
+  .cards, .enrollment { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .card { max-width: none; }
+  .cardBody { padding: 25px 22px 30px; }
+  .card .cardTitle, .stepsCard .cardTitle { font-size: clamp(26px, 6vw, 36px); }
+  .card .divider { margin: 27px -10px 16px; }
+  .highlights, .steps p { font-size: 15px; }
+  .enrollment { max-width: none; margin: 0; gap: 10px; }
+  .student { height: clamp(220px, 65vw, 320px); }
+  .student img { object-position: center 32%; }
+  .feature { width: 94%; min-height: 0; padding: clamp(150px, 43vw, 240px) 22px 28px; }
+  .featureCopy { width: 100%; }
+  .featurePhoto { bottom: auto; width: 100%; height: clamp(190px, 54vw, 300px); }
+  .featurePhoto img { object-position: 90% center; }
+  .featurePhoto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, #1d2251 0%, #1d2251aa 25%, transparent 65%); }
+  .included { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

@@ -1,12 +1,11 @@
 import { RevealHeading } from "@/components/ui/RevealHeading";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { VirtualCampusTab } from "@/components/campuses/CampusSections";
 import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
 import { routes } from "@/config/routes";
-import { iconMenus } from "@/data/menus";
+import { CampContact, CampNavigation } from "./CampNavigation";
 import { BenefitOrbit } from "./BenefitOrbit";
 import styles from "./Overview.module.css";
 
@@ -54,11 +53,7 @@ export default function YouthCampPage() {
         </div>
       </div>
     </section>
-    <nav id="camp-programs" className={styles.nav} aria-label="Youth camp pages">
-      {iconMenus.youth.map(item => <Link key={item.href} href={item.href} aria-current={item.href === routes.youthCamp ? "page" : undefined}>
-        <span><Image src={`/images/menu/${item.icon}.svg`} width={44} height={44} alt="" /></span>{item.label}
-      </Link>)}
-    </nav>
+    <CampNavigation current={routes.youthCamp} />
     <ul className={styles.facts} aria-label="Camp at a glance">
       {facts.map(([icon, title, ...lines]) => <li key={icon}>
         <CampIcon name={icon} size={44} />
@@ -78,15 +73,7 @@ export default function YouthCampPage() {
           <div className={styles.activityPhoto}><Photo name={`youth-camp/${item.photo}`} alt={item.alt} sizes="(max-width: 767px) 90vw, 28vw" /></div>
         </li>)}</ol>
     </section>
-    <section className={styles.contact} aria-labelledby="camp-contact">
-      <div className={styles.contactPhoto}><Photo name="youth-camp/contact" sizes="65vw" /></div>
-      <div className={styles.contactCopy}>
-        <RevealHeading as="h2" id="camp-contact">Ready for youth <span>camp 2027?</span></RevealHeading>
-        <p>Let’s plan your group’s Florida adventure.</p>
-        <p>For information and pricing, contact <a href="mailto:camps@ohla.com">camps@ohla.com</a> with your destination, arrival date, group size, number of leaders, and students’ age range. We’ll be happy to create a personalized quote for your group!</p>
-      </div>
-      <Button href="mailto:camps@ohla.com" variant="light">Contact camps@ohla.com ↗</Button>
-    </section>
+    <CampContact />
     <VirtualCampusTab />
   </main>;
 }

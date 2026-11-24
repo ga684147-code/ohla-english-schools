@@ -42,6 +42,7 @@ export const routes = {
   studentServices: "/international-students/student-services",
 } as const;
 const implementedPages = new Set<string>([
+  routes.youthMiami, routes.youthOrlando, routes.youthAccommodation, routes.youthEnrollment,
   routes.onlinePathway, routes.privateLessons, routes.groupClasses, routes.businessEnglish, routes.examPreparation,
   routes.internationalStudents, routes.f1Students, routes.f1Transfer, routes.visaI20, routes.studentAccommodation,
 ]);
