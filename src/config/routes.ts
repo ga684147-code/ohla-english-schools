@@ -11,7 +11,7 @@ export const routes = {
   about: "/about",
   contact: "/contact",
   levelTest: "/english-level-test",
-  apply: "/apply",
+  apply: "/contact#contact-form",
   privacy: "/privacy-policy",
   whatsapp: "/contact?channel=whatsapp",
   generalEnglish: "/programs/english/general",
@@ -49,7 +49,7 @@ const implementedPages = new Set<string>([
 
 export const futurePages: Record<string, string> = Object.fromEntries(
   Object.entries(routes)
-    .filter(([key, path]) => key !== "home" && key !== "whatsapp" && !implementedPages.has(path))
+    .filter(([key, path]) => key !== "home" && key !== "whatsapp" && key !== "apply" && !implementedPages.has(path))
     .map(([key, path]) => [
       path,
       key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase()),
