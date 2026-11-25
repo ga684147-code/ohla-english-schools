@@ -94,14 +94,14 @@ export function Footer() {
               </h2>
               {category.panel === "programs" ? (
                 <div className={styles.programGroups}>
-                  {programMenu.groups.map((group) => (
+                  {programMenu.groups.filter(group => group.href !== routes.gapYear).map((group) => (
                     <div className={styles.programGroup} key={group.href}>
                       <h3>
                         <Link href={group.href}>{titleCase(group.title)}</Link>
                       </h3>
                       {group.links.length > 0 && (
                         <ul>
-                          {group.links.map((link) => (
+                          {(group.href === routes.universityPathway ? [...group.links, { label: "GAP Year", href: routes.gapYear }] : group.links).map((link) => (
                             <li key={link.href}>
                               <Link href={link.href}>{link.label}</Link>
                             </li>
