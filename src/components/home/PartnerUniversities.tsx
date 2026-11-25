@@ -27,7 +27,7 @@ export function PartnerUniversities() {
           </span>
         </div>
         <RevealHeading as="h2" id="partner-title">
-          Your English can open the doors to a university in the United States
+          Your English can open the door to universities around the globe.
         </RevealHeading>
         <p>
           OHLA partners with{" "}
