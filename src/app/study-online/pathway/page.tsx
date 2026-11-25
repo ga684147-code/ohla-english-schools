@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 const features: Feature[] = [
   ["pathway-levels","18 online levels"], ["pathway-days","4 days a week"],
-  ["pathway-weeks","4 weeks per level"], ["pathway-weekday","Monday to Thursday"], ["pathway-hours","12 hours a week"],
+  ["pathway-weeks","4 weeks per level"], ["pathway-weekday","Monday to Thursday"], ["pathway-hours","10 hours per week"],
 ];
 const levels = [
   ["1–2","Basic 1","A1"], ["3–4","Basic 2","A2"], ["5–6","Intermediate 1","B1"],
