@@ -20,7 +20,7 @@ export function ContactCTA() {
         </p>
         <div className="button-row">
           <Button href={routes.contact} variant="outline">
-            Talk to a consultant
+            Talk to an advisor
           </Button>
           <Button href={routes.whatsapp} variant="whatsapp">
             WhatsApp OHLA
