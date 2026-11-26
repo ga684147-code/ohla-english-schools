@@ -11,7 +11,7 @@ A revisão partiu do commit `844cdf6` da PR #1, na branch `ohla-client-adjustmen
 | 5. Rodapé | GAP Year está no agrupamento Higher Education. University Pathway continua acessível. Os seis ícones sociais usam os mesmos perfis da página de contato. |
 | 6–8. Online Pathway | Conferidas as 10 horas semanais. A tabela mantém as sessões de 2026 até a OHLA fornecer o calendário específico de 2027. As linhas animam uma vez quando entram na tela e respeitam a preferência por movimento reduzido. |
 | 9 e 11. Espaçamento e contato | Foram reduzidos os espaços no CTA da Home, nos banners compartilhados das páginas internas e entre o calendário e o rodapé. O botão Talk to our team recebeu largura responsiva. Foram corrigidas duas rolagens horizontais, na Home a 360 px e no banner Study Online a 768 px. |
-| 10. Programa descontinuado | Pendente de nome oficial e página do card. A busca por “OHLA Live” na branch e na discussão da PR não identificou o card. A Home lista quatro programas. O submenu Study online contém uma página de apresentação e cinco destinos de cursos. Confirmar a seção antes de excluir. |
+| 10. Card OHLA Life | Removido da seção “Why choose OHLA?” em Youth Camps → Overview após confirmação do nome. A seção apresenta cinco cards. |
 | 12. Header | Confirmado o posicionamento fixo durante a rolagem e o menu recolhido após navegar no celular. |
 | 13. CRM | Pendente do HTML oficial. O formulário atual valida os campos e prepara um e-mail. A página oferece também o link para o formulário oficial da OHLA. |
 | 14. Apply Now | Os CTAs abrem a seção do formulário de contato e o endereço antigo `/apply/` também encaminha ao formulário. |
@@ -31,7 +31,7 @@ npm run test:e2e
 
 O Playwright inicia o servidor do teste sobre a exportação de produção. A suíte cobre o menu e o mapa em 360, 390, 768, 1024, 1200 e 1440 px. Percorre as 50 rotas públicas em 360, 768 e 1440 px e verifica os rodapés e a largura do documento. Cobre também os filtros, seletores de programa, formulário, vídeo local, painel de comentários e preferências de movimento. O ambiente touch é emulado em Chromium.
 
-A auditoria encontrou 6.596 ocorrências de links e 240 arquivos locais referenciados, incluindo recursos compartilhados entre páginas. Todos os destinos internos e fragmentos existem. Entre as 50 rotas, 23 exibem o aviso de página planejada, incluindo 10 endereços de artigos. Esses destinos requerem conteúdo para o lançamento.
+A auditoria encontrou 6.596 ocorrências de links e 239 arquivos locais referenciados, incluindo recursos compartilhados entre páginas. Todos os destinos internos e fragmentos existem. Entre as 50 rotas, 23 exibem o aviso de página planejada, incluindo 10 endereços de artigos. Esses destinos requerem conteúdo para o lançamento.
 
 Dos 13 endereços HTTPS externos distintos, oito retornaram HTTP 200. X retornou 403, LinkedIn retornou 999 e o ambiente não recebeu resposta dos três endereços de vídeo do YouTube. Esses cinco destinos precisam de confirmação manual. O player MP4 da OHLA foi testado com reprodução e pausa.
 

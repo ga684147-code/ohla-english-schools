@@ -25,7 +25,6 @@ const benefits = [
   ["sun", "Experience the best of Florida", "Enjoy exciting attractions, cultural experiences, beaches, and local favorites."],
   ["ticket", "Activities included", "A full schedule of activities and excursions is built into the experience."],
   ["sparkle", "Memories that last", "Discover new places, build confidence, and create unforgettable friendships."],
-  ["calendar", "OHLA Life", "Special days bring students together through activities, culture, and connection."],
   ["shield", "Safe & supervised", "OHLA staff lead scheduled activities and excursions throughout the program."],
 ];
 const activities = [

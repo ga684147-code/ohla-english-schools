@@ -178,6 +178,11 @@ for (const width of [360, 768, 1440]) {
         waitUntil: "domcontentloaded",
       });
       expect(response?.status(), route).toBe(200);
+      if (route === "/youth-camp/") {
+        const cards = page.locator('section[aria-labelledby="why-camp"] li');
+        await expect(cards).toHaveCount(5);
+        await expect(cards.filter({ hasText: "OHLA Life" })).toHaveCount(0);
+      }
       await expect(page.locator("main")).toHaveCount(1);
       await expect(page.locator("footer")).toHaveCount(1);
       await page.evaluate(() => document.fonts.ready);
