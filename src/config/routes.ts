@@ -44,7 +44,7 @@ export const routes = {
 export const englishTestUrl = "https://www.classmarker.com/online-test/start/user-info/?quiz=ddr644a715424b27";
 
 const implementedPages = new Set<string>([
-  routes.levelTest,
+  routes.levelTest, routes.universityPartners, routes.westcliff, routes.higherEducation, routes.universityAdmission,
   routes.generalEnglish, routes.academicEnglish, routes.intensiveEnglish, routes.semiIntensive,
   routes.youthMiami, routes.youthOrlando, routes.youthAccommodation, routes.youthEnrollment,
   routes.onlinePathway, routes.privateLessons, routes.groupClasses, routes.businessEnglish, routes.examPreparation,
