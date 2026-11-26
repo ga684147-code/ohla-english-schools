@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 import s from "@/components/pathway/Pathway.module.css";
 const schools = [
@@ -7,6 +8,7 @@ const schools = [
   { name: "Marymount University", city: "Arlington, Virginia, USA", text: "" },
 ];
 export function PartnerSearch() {
+  const [catalogueOpen, setCatalogueOpen] = useState(false);
   const [query,setQuery] = useState("");
   const [search,setSearch] = useState("");
   const [location, setLocation] = useState("");
@@ -26,7 +28,17 @@ export function PartnerSearch() {
       <button type="button" onClick={()=>{setLocation("");setCity("");setSchoolName("");setQuery("");setSearch("");}}>Clear filters</button>
     </aside><div><p role="status">{results.length} university listings found</p>
     {results.length === 0 && <p>No universities match your search. Try another name, city, or state.</p>}
-    {results.map((school)=><details className={s.listing} key={school.name+school.city}><summary>{school.name} — {school.city}</summary><p>Private school</p>{school.text && <p>{school.text}</p>}</details>)}
+    {results.map((school)=><details className={s.listing} key={school.name+school.city}><summary>{school.name === "Westcliff University" && <Image src="/images/westcliff/logo.webp" width={150} height={45} alt="" />}<span>{school.name}<small>{school.city}</small></span></summary><p>Private school</p>{school.text && <p>{school.text}</p>}</details>)}
     </div></div>
+    <section className={s.catalogue} aria-labelledby="official-catalogue">
+      <h2 id="official-catalogue">Explore all partner universities</h2>
+      <button type="button" aria-expanded={catalogueOpen} aria-controls="catalogue-content" onClick={()=>setCatalogueOpen(!catalogueOpen)}>
+        {catalogueOpen ? "Close university catalogue" : "Open university catalogue"}
+      </button>
+      <div id="catalogue-content" hidden={!catalogueOpen}>
+        {catalogueOpen && <iframe title="OHLA official university partners catalogue" src="https://airtable.com/embed/appuzxcgx7DioG7sv/shrykd4aKIjEm5erd?viewControls=on" width="100%" height="650" loading="lazy" />}
+        <a href="https://www.ohla.com/university-partners/">View university partners on OHLA</a>
+      </div>
+    </section>
   </section>;
 }
