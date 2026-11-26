@@ -23,7 +23,7 @@ export default function Westcliff() {
       <h3>Who Qualifies?</h3><p>All students seeking to pursue a Master’s or Doctoral’s degree in the US can enroll at Westcliff University at OHLA.</p>
     </div><div className={s.photo}><Photo name="westcliff/campus" alt="Student studying on campus" /></div></div></section>
     <LevelDiagram intensive={false} />
-    <section className={s.content}><div className={s.cards}>
+    <section className={s.content}><div className={s.cards}><Image className={s.ohlaLogo} src="/images/logo.webp" width={250} height={250} alt="OHLA English Schools" />
       <article><h2>TOEFL or IELTS Required?</h2><p>You do not need TOEFL or IELTS to transition to Westcliff University. You only need to complete the Elite Level at OHLA for your Master’s or Doctoral’s degree.</p></article>
       <article><h2>University Admission Assistance</h2><p>OHLA, through its sister company, UniApplyNow does the University admission process for YOU and we GUARANTEE your admission to Westcliff University.</p></article>
       <article><h2>Virtual Campus Class offered?</h2><p>Westcliff University programs are currently available at our OHLA Miami Brickell and OHLA Orlando Celebration campuses.</p></article>

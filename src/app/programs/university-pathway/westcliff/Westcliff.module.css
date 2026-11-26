@@ -26,3 +26,7 @@
 .programCards { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0; list-style:none; margin:24px 0; }
 .programCards li { border-radius:12px; padding:20px; color:#191919; background:white; font-size:16px; }
 @media(max-width:760px){.tabs{grid-template-columns:1fr 1fr;gap:8px}.programPanel{grid-template-columns:1fr}.programPanel .photo{margin-bottom:25px}.programCards li{padding:14px}}
+.cards { grid-template-columns:1.2fr repeat(3,1fr); align-items:center; }
+.ohlaLogo { width:100%; height:auto; }
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}.ohlaLogo{max-width:200px;justify-self:center}}
+@media(max-width:540px){.cards{grid-template-columns:1fr}}
