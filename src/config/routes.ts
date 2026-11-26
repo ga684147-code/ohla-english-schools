@@ -45,6 +45,7 @@ export const englishTestUrl = "https://www.classmarker.com/online-test/start/use
 
 const implementedPages = new Set<string>([
   routes.levelTest,
+  routes.generalEnglish, routes.academicEnglish, routes.intensiveEnglish, routes.semiIntensive,
   routes.youthMiami, routes.youthOrlando, routes.youthAccommodation, routes.youthEnrollment,
   routes.onlinePathway, routes.privateLessons, routes.groupClasses, routes.businessEnglish, routes.examPreparation,
   routes.internationalStudents, routes.f1Students, routes.f1Transfer, routes.visaI20, routes.studentAccommodation, routes.studentServices,
