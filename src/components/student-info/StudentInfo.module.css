@@ -138,3 +138,15 @@
   .airport { position: static; width: 100%; border-radius: 0; }
   .steps ol { column-gap: 20px; row-gap: 26px; }
 }
+
+@media (min-width: 1200px) {
+  .overview,
+  .f1Journey,
+  .housingOptions,
+  .homestay,
+  .documents,
+  .steps ol,
+  .advisor {
+    width: var(--desktop-content-width);
+  }
+}

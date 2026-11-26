@@ -132,3 +132,14 @@
 @keyframes entry5 { 0%, 28% { opacity: 0; transform: translateY(14px); } 47%, 100% { opacity: 1; transform: none; } }
 @keyframes entry6 { 0%, 33.5% { opacity: 0; transform: translateY(14px); } 52.5%, 100% { opacity: 1; transform: none; } }
 @keyframes entry7 { 0%, 39% { opacity: 0; transform: translateY(14px); } 58%, 100% { opacity: 1; transform: none; } }
+
+@media (min-width: 1200px) {
+  .lessonPanel,
+  .pathIntro,
+  .levels,
+  .entries,
+  .examOverview,
+  .examFees {
+    width: var(--desktop-content-width);
+  }
+}

@@ -131,3 +131,10 @@
   .legend { flex-wrap: wrap; justify-content: center; }
   .legend li { font-size: .8rem; }
 }
+
+@media (min-width: 1200px) {
+  .sheet,
+  .contact {
+    width: var(--desktop-content-width);
+  }
+}

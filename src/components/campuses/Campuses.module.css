@@ -145,3 +145,11 @@
   .related .cardBody :global(.button) { align-self: flex-start; }
   .tab img { width: 20px; height: 20px; }
 }
+
+@media (min-width: 1200px) {
+  .directory,
+  .related,
+  .detail {
+    width: var(--desktop-content-width);
+  }
+}

@@ -2415,3 +2415,29 @@ button {
     background-clip: text;
   }
 }
+
+@media (min-width: 1200px) {
+  :root {
+    --desktop-gutter: 97.66px;
+    --desktop-content-width: calc(100% - 2 * var(--desktop-gutter));
+  }
+
+  .wide-container,
+  .why-ohla,
+  .testimonial-inner,
+  .articles-inner,
+  .footer-inner {
+    width: var(--desktop-content-width);
+    max-width: none;
+    margin-inline: auto;
+  }
+
+  .international {
+    max-width: none;
+  }
+
+  .international-copy,
+  .contact-copy {
+    margin-inline-start: var(--desktop-gutter);
+  }
+}

@@ -257,3 +257,25 @@ test("native selects accept clicks across the field, and the legacy Apply URL op
   });
   expect(hitTargets).toEqual(["SELECT", "SELECT"]);
 });
+
+for (const width of [1200, 1920]) {
+  test(`desktop content follows the shared side margins at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    const pages = [
+      { path: "/", selectors: ["#virtual-campus", "#why-ohla .feature-grid", "#programs", ".partner", ".campus-highlights", ".articles-inner", ".footer-inner"] },
+      { path: "/study-online/", selectors: ["#virtual-campus"] },
+      { path: "/youth-camp/orlando-programs/", selectors: ['section[aria-label="Orlando camp programs"]'] },
+      { path: "/campuses/", selectors: ['section[aria-label="Explore our Florida campuses"]'] },
+      { path: "/international-students/calendar-2027/", selectors: ['section[aria-label="2027 dates and school closures"]'] },
+    ];
+    for (const { path, selectors } of pages) {
+      await page.goto(path);
+      for (const selector of selectors) {
+        const box = await page.locator(selector).boundingBox();
+        expect(box, selector).toBeTruthy();
+        expect(box!.x, selector).toBeCloseTo(97.66, 1);
+        expect(width - box!.x - box!.width, selector).toBeCloseTo(97.66, 1);
+      }
+    }
+  });
+}

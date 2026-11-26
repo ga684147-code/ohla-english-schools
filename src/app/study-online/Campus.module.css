@@ -67,3 +67,13 @@
 }
 .benefits[data-cube] li img { width: clamp(52px, 4vw, 66px); height: auto; }
 .benefits[data-cube] li p { margin: 0; font-size: clamp(17px, 1.3vw, 21px); }
+
+@media (min-width: 1200px) {
+  .page :global(section#virtual-campus) {
+    margin-inline: auto;
+  }
+
+  .benefits {
+    width: var(--desktop-content-width);
+  }
+}
