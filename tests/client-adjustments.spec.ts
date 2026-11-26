@@ -126,20 +126,13 @@ test("calendar, contact controls, tabs, search and program selectors", async ({
   await page.goto("/study-online/");
   await page.getByRole("main").getByRole("link", { name: "Apply now" }).click();
   await expect(page).toHaveURL(/\/contact\/?#contact-form$/);
-  const country = page.getByRole("combobox", { name: "Country of origin" });
-  await country.fill("Braz");
-  await country.press("ArrowDown");
-  await country.press("Enter");
-  await expect(country).toHaveValue("Brazil");
-  await country.click();
-  await expect(country).toHaveAttribute("aria-expanded", "true");
-  await country.press("Escape");
-  for (const s of await page.locator("form select").all()) {
-    await s.selectOption({ index: 1 });
-    expect(await s.inputValue()).toBeTruthy();
-  }
-  await page.locator("form button[type=submit]").click();
-  expect(await page.locator("form input:invalid").count()).toBeGreaterThan(0);
+  const form = page.locator("#contact-form");
+  await expect(form.locator('iframe[title="OHLA Connect contact form"]')).toHaveAttribute(
+    "src", "https://ohlaconnect.com/webform/33",
+  );
+  await expect(form.getByRole("link", {name: "Open the contact form in a new tab"})).toHaveAttribute(
+    "href", "https://ohlaconnect.com/webform/33",
+  );
   await page.goto("/blog/");
   await page.locator("#blog-search").fill("zzzzzz");
   await expect(page.getByText("No articles found")).toBeVisible();
@@ -253,23 +246,14 @@ test("native selects accept clicks across the field, and the legacy Apply URL op
 }) => {
   await page.goto("/apply/");
   await expect(page).toHaveURL(/\/contact\/?#contact-form$/);
-  for (const route of ["/contact/", "/international-students/calendar-2027/"]) {
-    await page.goto(route);
-    for (const select of await page.locator("select").all()) {
-      await select.evaluate((el) =>
-        el.scrollIntoView({ block: "center", behavior: "instant" }),
-      );
-      const hitTargets = await select.evaluate((el) => {
-        const box = el.getBoundingClientRect();
-        return [box.left + 12, box.right - 12].map(
-          (x) =>
-            document.elementFromPoint(x, box.top + box.height / 2)?.tagName,
-        );
-      });
-      expect(
-        hitTargets,
-        route + " " + (await select.getAttribute("id")),
-      ).toEqual(["SELECT", "SELECT"]);
-    }
-  }
+  await page.goto("/international-students/calendar-2027/");
+  const month = page.getByLabel("Select a month");
+  await month.evaluate(el => el.scrollIntoView({ block: "center", behavior: "instant" }));
+  const hitTargets = await month.evaluate(el => {
+    const box = el.getBoundingClientRect();
+    return [box.left + 12, box.right - 12].map(x =>
+      document.elementFromPoint(x, box.top + box.height / 2)?.tagName,
+    );
+  });
+  expect(hitTargets).toEqual(["SELECT", "SELECT"]);
 });
