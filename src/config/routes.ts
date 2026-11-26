@@ -47,7 +47,7 @@ const implementedPages = new Set<string>([
   routes.levelTest,
   routes.youthMiami, routes.youthOrlando, routes.youthAccommodation, routes.youthEnrollment,
   routes.onlinePathway, routes.privateLessons, routes.groupClasses, routes.businessEnglish, routes.examPreparation,
-  routes.internationalStudents, routes.f1Students, routes.f1Transfer, routes.visaI20, routes.studentAccommodation,
+  routes.internationalStudents, routes.f1Students, routes.f1Transfer, routes.visaI20, routes.studentAccommodation, routes.studentServices,
 ]);
 
 export const futurePages: Record<string, string> = Object.fromEntries(

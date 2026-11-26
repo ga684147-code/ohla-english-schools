@@ -150,3 +150,68 @@
     width: var(--desktop-content-width);
   }
 }
+
+.servicesPage .heroLabel { font-size: clamp(15px, 1.04vw, 20px); letter-spacing: 0; }
+.servicesPage .hero h1 { max-width: 11.2em; line-height: 1.08; letter-spacing: -.025em; }
+.servicesPage .heroText { max-width: 18.4em; }
+.stagePhrase { white-space: nowrap; }
+.servicesPage .heroActions { margin-top: clamp(24px, 3.7vw, 72px); }
+.serviceOverview { width: var(--desktop-content-width, 89%); margin-inline: auto; padding-top: clamp(56px, 5.55vw, 107px); }
+.serviceOverview .kicker { margin-bottom: .35em; }
+.serviceOverview .summary { margin-top: .35em; }
+.servicesPage .serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 1.5vw, 29px);
+  margin-top: clamp(36px, 4.9vw, 94px);
+}
+.serviceGrid li {
+  border-image: url("/images/student-info/services-outline.svg") 22 fill / 18px stretch;
+  padding: clamp(22px, 1.7vw, 33px);
+  color: #202a55;
+}
+.serviceGrid li > span { color: #d32330; font: 700 clamp(16px, 1.07vw, 21px)/1.25 Arial, sans-serif; }
+.serviceGrid h3 { margin: .65em 0 .35em; font-size: clamp(20px, 1.3vw, 25px); }
+.serviceGrid li p, .servicesPage .docCopy li p { color: #667089; font: 400 clamp(16px, 1.04vw, 20px)/1.42 Manrope, sans-serif; }
+.serviceGrid li p { max-width: 30ch; }
+.servicesPage .documents { gap: clamp(32px, 4vw, 78px); margin-block: clamp(56px, 6.4vw, 123px); }
+.servicesPage .docCopy h2 { max-width: 11em; }
+.servicesPage .docCopy .summary { margin-top: 1.35em; }
+.servicesPage .docCopy li {
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  padding: clamp(16px, 1.5vw, 29px) clamp(18px, 2vw, 39px);
+}
+.servicesPage .docCopy li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-image: url("/images/student-info/services-row.svg") 52 fill / 42px / 12px 34px 33px 12px stretch;
+}
+.servicesPage .docCopy li h3 { color: #d32330; text-transform: uppercase; font-size: clamp(15px, 1.04vw, 20px); }
+.servicesPage .docCopy .icon { padding: 0; background: transparent; }
+@media (min-width: 761px) {
+  .servicesPage .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url("/images/student-info/services-glow.svg") left bottom / auto 100% no-repeat,
+      linear-gradient(to right, #06073f 55%, transparent);
+  }
+  .servicesPage .heroInner { padding-block: clamp(140px, 10.8vw, 208px) clamp(64px, 9.5vw, 182px); }
+}
+@media (max-width: 900px) {
+  .servicesPage .serviceGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .servicesPage .hero > img { object-position: 84% center; }
+  .servicesPage .documents { gap: 28px; }
+  .servicesPage .serviceOverview { scroll-margin-top: 72px; }
+}
+@media (max-width: 540px) {
+  .servicesPage .serviceGrid { grid-template-columns: 1fr; }
+  .serviceGrid li p { max-width: none; }
+}

@@ -10,12 +10,12 @@ import s from "./StudentInfo.module.css";
 export type StudentCard = { title: string; text: string; icon?: string };
 export const advisorForm = routes.contact + "#contact-form";
 
-export function StudentPage({ children }: { children: ReactNode }) {
-  return <main id="main" className={s.page}>{children}<VirtualCampusTab /></main>;
+export function StudentPage({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return <main id="main" className={`${s.page} ${className}`}>{children}<VirtualCampusTab /></main>;
 }
 
 type HeroProps = {
-  variant: "overview" | "students" | "housing" | "visa" | "transfer";
+  variant: "overview" | "students" | "housing" | "visa" | "transfer" | "services";
   label: string;
   title: ReactNode;
   text?: ReactNode;
