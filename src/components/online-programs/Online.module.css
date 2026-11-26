@@ -112,18 +112,17 @@
   .examPhoto { aspect-ratio: 1.4; }
   .qualifications > p { margin-left: 0; }
 }
-/* The Figma timeline reveals each date row within a shared two-second loop. */
+/* Each row follows the same timeline once the table enters the viewport. */
 @media (prefers-reduced-motion: no-preference) {
-  .dates tr { animation-duration: 3s; animation-iteration-count: 1; animation-fill-mode: forwards; animation-timing-function: ease-out; }
-  .dates thead tr { animation-name: entry0; }
-  .dates tbody tr:nth-child(1) { animation-name: entry1; }
-  .dates tbody tr:nth-child(2) { animation-name: entry2; }
-  .dates tbody tr:nth-child(3) { animation-name: entry3; }
-  .dates tbody tr:nth-child(4) { animation-name: entry4; }
-  .dates tbody tr:nth-child(5) { animation-name: entry5; }
-  .dates tbody tr:nth-child(6) { animation-name: entry6; }
-  .dates tbody tr:nth-child(7) { animation-name: entry7; }
-  .dates:is(:hover, :focus) tr:nth-child(n) { animation-name: none; }
+  .dates[data-reveal] tr { animation-duration: 3s; animation-iteration-count: 1; animation-fill-mode: forwards; animation-timing-function: ease-out; }
+  .dates[data-reveal] thead tr { animation-name: entry0; }
+  .dates[data-reveal] tbody tr:nth-child(1) { animation-name: entry1; }
+  .dates[data-reveal] tbody tr:nth-child(2) { animation-name: entry2; }
+  .dates[data-reveal] tbody tr:nth-child(3) { animation-name: entry3; }
+  .dates[data-reveal] tbody tr:nth-child(4) { animation-name: entry4; }
+  .dates[data-reveal] tbody tr:nth-child(5) { animation-name: entry5; }
+  .dates[data-reveal] tbody tr:nth-child(6) { animation-name: entry6; }
+  .dates[data-reveal] tbody tr:nth-child(7) { animation-name: entry7; }
 }
 @keyframes entry0 { 0% { opacity: 0; transform: translateY(14px); } 16%, 100% { opacity: 1; transform: none; } }
 @keyframes entry1 { 0%, 6% { opacity: 0; transform: translateY(14px); } 25%, 100% { opacity: 1; transform: none; } }

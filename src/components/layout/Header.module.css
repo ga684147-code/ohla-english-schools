@@ -243,3 +243,6 @@
   .mobileGroup ul { padding-left: 14px; margin: 0 0 6px; list-style: none; }
   .mobileLinks a:focus-visible { outline: 2px solid #39459d; outline-offset: -2px; }
 }
+
+.header :global(.nav-trigger) { width: 100%; cursor: pointer; }
+.header :global(.nav-trigger svg) { pointer-events: none; }

@@ -16,7 +16,7 @@ export function WhyOHLA() {
       </div>
       <div className="feature-grid">
         {features.map((feature, index) => (
-          <article className="feature-card" key={feature.title}>
+          <article className={`feature-card ${feature.wide ? styles.wide : ""}`} key={feature.title}>
             <div className="feature-icons">
               <span className="feature-icon">
                 <Image

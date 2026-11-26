@@ -1,3 +1,4 @@
+import { socials } from "@/data/socials";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
@@ -6,16 +7,19 @@ import { routes } from "@/config/routes";
 import { navigation } from "@/config/navigation";
 import { programMenu } from "@/data/menus";
 import styles from "./Footer.module.css";
-const socials = [
-  ["Facebook", "165-14467", 16, 16],
-  ["TikTok", "165-14469", 18, 20],
-  ["Instagram", "165-14471", 16, 16],
-  ["LinkedIn", "165-14473", 19.06, 18],
-  ["X", "165-14475", 19.78, 17.88],
-  ["Flickr", "165-14477", 22, 10],
-] as const;
 const titleCase = (label: string) =>
   label.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
+const footerProgramGroups = programMenu.groups
+  .filter(group => group.href !== routes.gapYear)
+  .map(group => group.href === routes.universityPathway ? {
+    title: "Higher Education",
+    href: routes.higherEducation,
+    links: [
+      { label: "University Pathway", href: routes.universityPathway },
+      ...group.links.filter(link => link.href !== routes.higherEducation),
+      { label: "GAP Year", href: routes.gapYear },
+    ],
+  } : group);
 const categories = navigation.filter((item) => item.panel);
 const moreLinks = [
   { label: "Home", href: routes.home },
@@ -33,10 +37,10 @@ export function Footer() {
           <div>
             <p>Follow us on social media</p>
             <div className="social-links">
-              {socials.map(([label, icon, width, height]) => (
+              {socials.map(([label, icon, width, height, href]) => (
                 <Link
-                  href={`/contact?social=${label.toLowerCase()}`}
-                  aria-label={`${label} — contact OHLA for the official profile`}
+                  href={href}
+                  aria-label={`OHLA on ${label}`}
                   key={label}
                 >
                   <Image
@@ -94,14 +98,14 @@ export function Footer() {
               </h2>
               {category.panel === "programs" ? (
                 <div className={styles.programGroups}>
-                  {programMenu.groups.filter(group => group.href !== routes.gapYear).map((group) => (
+                  {footerProgramGroups.map((group) => (
                     <div className={styles.programGroup} key={group.href}>
                       <h3>
                         <Link href={group.href}>{titleCase(group.title)}</Link>
                       </h3>
                       {group.links.length > 0 && (
                         <ul>
-                          {(group.href === routes.universityPathway ? [...group.links, { label: "GAP Year", href: routes.gapYear }] : group.links).map((link) => (
+                          {group.links.map((link) => (
                             <li key={link.href}>
                               <Link href={link.href}>{link.label}</Link>
                             </li>

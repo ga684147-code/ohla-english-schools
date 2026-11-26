@@ -56,6 +56,7 @@ function CountrySelect() {
         }
         value={value}
         onFocus={() => setOpen(true)}
+        onClick={() => setOpen(true)}
         onChange={(e) => {
           const v = e.target.value;
           setValue(v);
@@ -231,7 +232,7 @@ export function ContactForm() {
               required
               minLength={7}
               maxLength={30}
-              pattern="[+0-9() .\-]{7,30}"
+              pattern={String.raw`[+0-9\(\) .\-]{7,30}`}
               title="Enter your phone number with the country code, using digits, spaces, +, parentheses or hyphens."
             />
           </div>

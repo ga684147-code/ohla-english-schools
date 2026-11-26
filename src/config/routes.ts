@@ -13,7 +13,7 @@ export const routes = {
   levelTest: "/english-level-test",
   apply: "/contact#contact-form",
   privacy: "/privacy-policy",
-  whatsapp: "/contact?channel=whatsapp",
+  whatsapp: "https://bit.ly/37A5BWq",
   generalEnglish: "/programs/english/general",
   academicEnglish: "/programs/english/academic",
   semiIntensive: "/programs/english/semi-intensive",
@@ -41,7 +41,10 @@ export const routes = {
   studentAccommodation: "/international-students/accommodation",
   studentServices: "/international-students/student-services",
 } as const;
+export const englishTestUrl = "https://www.classmarker.com/online-test/start/user-info/?quiz=ddr644a715424b27";
+
 const implementedPages = new Set<string>([
+  routes.levelTest,
   routes.youthMiami, routes.youthOrlando, routes.youthAccommodation, routes.youthEnrollment,
   routes.onlinePathway, routes.privateLessons, routes.groupClasses, routes.businessEnglish, routes.examPreparation,
   routes.internationalStudents, routes.f1Students, routes.f1Transfer, routes.visaI20, routes.studentAccommodation,

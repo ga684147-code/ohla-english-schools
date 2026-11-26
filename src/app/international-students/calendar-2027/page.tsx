@@ -32,7 +32,7 @@ export default function CalendarPage() {
     <section className={styles.contact} aria-labelledby="calendar-contact">
       <div><RevealHeading as="h2" id="calendar-contact">Ready to start your experience with OHLA?</RevealHeading>
         <p>Talk to our team and find out which program best matches your goals.</p></div>
-      <Button href={routes.contact}>Talk to a consultant</Button>
+      <Button href={routes.contact}>Talk to an advisor</Button>
     </section>
     <VirtualCampusTab />
   </main>;

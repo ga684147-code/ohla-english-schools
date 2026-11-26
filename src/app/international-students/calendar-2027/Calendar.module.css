@@ -16,7 +16,7 @@
   --closed: #946100;
   background: #edf6f9;
   color: #112d55;
-  padding-bottom: clamp(54px, 6.5vw, 125px);
+  padding-bottom: clamp(32px, 3vw, 58px);
 }
 .hero {
   position: relative;

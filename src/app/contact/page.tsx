@@ -1,3 +1,4 @@
+import { socials } from "@/data/socials";
 import { RevealHeading } from "@/components/ui/RevealHeading";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -35,26 +36,7 @@ const campuses = [
       "Our campus is located near downtown Tampa and the international airport. Tampa is the economic hub of western Florida and is known for its beaches, professional sports teams, and tourist attractions, especially Busch Gardens, where you can enjoy the thrill of an amusement park and the fun of a zoo all in one place.",
   },
 ];
-const socials = [
-  ["Facebook", "165-14467", 16, 16, "https://www.facebook.com/ohlaschools"],
-  ["TikTok", "165-14469", 18, 20, "https://www.tiktok.com/@ohlaschools"],
-  ["Instagram", "165-14471", 16, 16, "https://www.instagram.com/ohlaschools/"],
-  [
-    "LinkedIn",
-    "165-14473",
-    19,
-    18,
-    "https://www.linkedin.com/company/10806967",
-  ],
-  ["X", "165-14475", 20, 18, "https://twitter.com/OHLASchools"],
-  [
-    "Flickr",
-    "165-14477",
-    22,
-    10,
-    "https://www.flickr.com/photos/90596775@N02/albums",
-  ],
-] as const;
+
 export default function ContactPage() {
   return (
     <main id="main" className={styles.page}>
