@@ -1,0 +1,21 @@
+.hero { width:100%;aspect-ratio:2113.539/1021.138;min-height:540px;position:relative;isolation:isolate;overflow:hidden;color:#efefef;background:#111644; }
+.hero > img { z-index:-2;object-fit:cover; }
+.glow { position:absolute;inset:0;z-index:-1;pointer-events:none;background:
+ url("/images/pathway/admission-glow-5.svg") left top/91.39% 100% no-repeat,
+ url("/images/pathway/admission-glow-4.svg") left top/78.76% 100% no-repeat,
+ url("/images/pathway/admission-glow-3.svg") left top/85.49% 100% no-repeat,
+ url("/images/pathway/admission-glow-2.svg") left top/67.17% 77.94% no-repeat,
+ url("/images/pathway/admission-glow-1.svg") left top/85.49% 100% no-repeat; }
+.copy { position:absolute;left:16.18%;top:25.99%;width:40%; }
+.copy h1 { color:inherit;font:700 clamp(40px,3.785vw,80px)/.92 Manrope,Arial,sans-serif;letter-spacing:-.04em;text-wrap:balance; }
+.copy p { width:62%;margin:clamp(22px,2.14vw,45px) 0 clamp(22px,1.6vw,34px);font:400 clamp(16px,.946vw,20px)/1.51 Manrope,Arial,sans-serif;color:#f0efef; }
+.copy :global(.button) { width:clamp(190px,15.9vw,336px);min-height:clamp(44px,2.98vw,63px);font-size:clamp(15px,.955vw,20px); }
+@media(max-width:1100px) and (min-width:761px) { .copy { left:9%;top:27%;width:48%; }.copy p{width:85%} }
+@media(max-width:760px) {
+ .hero { aspect-ratio:auto;min-height:680px;display:flex;align-items:flex-end; }
+ .hero > img { object-position:70% center; }
+ .glow { background:linear-gradient(0deg,#080d35 2%,#151b5de8 42%,#28379255 78%,transparent); }
+ .copy { position:relative;left:auto;top:auto;width:88%;margin:0 auto;padding:160px 0 44px; }
+ .copy h1 { font-size:clamp(40px,9.5vw,60px);line-height:1;max-width:13em; }
+ .copy p { width:100%;max-width:34em;margin:25px 0;font-size:16px; }
+}

@@ -4,11 +4,12 @@ import { RevealHeading } from "@/components/ui/RevealHeading";
 import { BlogCTA } from "@/components/blog/BlogCTA";
 import { VirtualCampusTab } from "@/components/campuses/CampusSections";
 import { routes } from "@/config/routes";
+import hero from "./AdmissionHero.module.css";
 import s from "@/components/pathway/Pathway.module.css";
 export const metadata = { title: "University Admission | OHLA English Schools" };
 export default function Admission() {
   return <main id="main">
-    <section className={s.hero}><Photo name="pathway/admission-hero" priority /><div className={s.heroCopy}>
+    <section className={hero.hero}><Photo name="pathway/admission-photo" priority /><div className={hero.glow} aria-hidden="true" /><div className={hero.copy}>
       <RevealHeading as="h1">Your path to a U.S. university starts here.</RevealHeading>
       <p>Get support to find the right university, navigate the admission process and take the next step toward your academic goals in the United States.</p>
       <Button href="#admission-options">Explore Your Options</Button>
