@@ -37,9 +37,22 @@ export function WhyOHLA() {
               )}
             </div>
             <h3>{feature.title}</h3>
-            {feature.icon === "165-15140" && <a className={styles.ceaLink} href="https://www.cea-accredit.org/" target="_blank" rel="noopener noreferrer" aria-label="CEA accreditation — opens in a new tab"><Image className={styles.ceaLogo} src="/images/cea-logo.webp" alt="CEA — Leading by Advancing Standards" width={148} height={59}/></a>}
+
           </article>
         ))}
+        <article className={`${styles.accreditation} feature-card`} aria-label="CEA accreditation">
+          <span className="feature-icon"><Image src="/images/icon-165-15140.svg" alt="" width={30} height={29} /></span>
+          <a className={styles.ceaLink} href="https://www.cea-accredit.org/" target="_blank" rel="noopener noreferrer" aria-label="CEA accreditation">
+            <Image className={styles.ceaLogo} src="/images/why-cea.webp" alt="CEA — Leading by Advancing Standards" width={369} height={140} />
+          </a>
+        </article>
+        <article className={`${styles.accreditation} feature-card`} aria-label="SEVIS">
+          <span className="feature-icon"><Image src="/images/icon-165-15140.svg" alt="" width={30} height={29} /></span>
+          <div className={styles.sevis}>
+            <Image src="/images/dhs-logo.webp" alt="U.S. Department of Homeland Security" width={156} height={156} />
+            <Image src="/images/sevis-wordmark.webp" alt="SEVIS" width={262} height={84} />
+          </div>
+        </article>
       </div>
     </section>
   );

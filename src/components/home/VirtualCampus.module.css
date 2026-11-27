@@ -70,3 +70,16 @@
   .section:global(#virtual-campus) :global(.button svg) {width:12px}
   .section:global(#virtual-campus) :global(.virtual-media) {margin-top:0;border-radius:10px}
 }
+
+@media (min-width: 1200px) {
+  .section:global(#virtual-campus) {
+    width: var(--desktop-content-width);
+    max-width: none;
+    margin-inline: auto;
+    grid-template-columns: minmax(0, 1fr) 52%;
+  }
+
+  .section:global(#virtual-campus) :global(.button-row) {
+    max-width: 530px;
+  }
+}

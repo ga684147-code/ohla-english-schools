@@ -351,3 +351,9 @@
   }
 }
 .footer :global(.footer-inner){padding-bottom:32px}
+
+@media (min-width: 1200px) {
+  .legal {
+    padding-inline: var(--desktop-gutter);
+  }
+}

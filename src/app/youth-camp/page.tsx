@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Photo } from "@/components/ui/Photo";
 import { routes } from "@/config/routes";
 import { CampContact, CampNavigation } from "./CampNavigation";
-import { BenefitOrbit } from "./BenefitOrbit";
+import { CardOrbit } from "@/components/ui/CardOrbit";
 import styles from "./Overview.module.css";
 
 export const metadata: Metadata = {
@@ -25,7 +25,6 @@ const benefits = [
   ["sun", "Experience the best of Florida", "Enjoy exciting attractions, cultural experiences, beaches, and local favorites."],
   ["ticket", "Activities included", "A full schedule of activities and excursions is built into the experience."],
   ["sparkle", "Memories that last", "Discover new places, build confidence, and create unforgettable friendships."],
-  ["calendar", "OHLA Life", "Special days bring students together through activities, culture, and connection."],
   ["shield", "Safe & supervised", "OHLA staff lead scheduled activities and excursions throughout the program."],
 ];
 const activities = [
@@ -60,9 +59,9 @@ export default function YouthCampPage() {
         <div><strong>{title}</strong>{lines.map(line => <p key={line}>{line}</p>)}</div>
       </li>)}
     </ul>
-    <BenefitOrbit>{benefits.map(([icon, title, text]) =>
+    <CardOrbit title="Why choose OHLA?" titleId="why-camp" subtitle="Learn beyond the classroom and discover the best of Florida." className={styles.why} listClassName={styles.benefits} subtitleClassName={styles.subtitle}>{benefits.map(([icon, title, text]) =>
       <li key={icon}><CampIcon name={icon} size={60} /><h3>{title}</h3><p>{text}</p></li>
-    )}</BenefitOrbit>
+    )}</CardOrbit>
     <section className={styles.day} aria-labelledby="camp-day">
       <RevealHeading as="h2" id="camp-day">A typical day at OHLA</RevealHeading>
       <p className={styles.subtitle}>English lessons, exciting activities and time to connect.</p>

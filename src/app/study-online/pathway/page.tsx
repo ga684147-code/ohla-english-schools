@@ -1,3 +1,4 @@
+import { EntryDatesTable } from "./EntryDatesTable";
 import type { Metadata } from "next";
 import { FeatureCards, OnlineHero, OnlinePage, ProgramIcon, type Feature } from "@/components/online-programs/OnlineSections";
 import { RevealHeading } from "@/components/ui/RevealHeading";
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 };
 const features: Feature[] = [
   ["pathway-levels","18 online levels"], ["pathway-days","4 days a week"],
-  ["pathway-weeks","4 weeks per level"], ["pathway-weekday","Monday to Thursday"], ["pathway-hours","12 hours a week"],
+  ["pathway-weeks","4 weeks per level"], ["pathway-weekday","Monday to Thursday"], ["pathway-hours","10 hours per week"],
 ];
 const levels = [
   ["1–2","Basic 1","A1"], ["3–4","Basic 2","A2"], ["5–6","Intermediate 1","B1"],
@@ -30,7 +31,7 @@ const qualifications = [
 ];
 export default function OnlinePathway() {
   return <OnlinePage promo="Contact us for promotional prices.">
-    <OnlineHero program="pathway" title={<>University<br />Pathway Online</>} action="Apply now" href={routes.contact + "#contact-form"}>
+    <OnlineHero program="pathway" title={<>University<br />Pathway Online</>} action="Apply now" href={routes.apply}>
       <p className={s.pathLead}>Study English online and prepare for an American university</p>
       <p className={s.pathSub}>Live classes with OHLA teachers</p>
     </OnlineHero>
@@ -57,10 +58,10 @@ export default function OnlinePathway() {
       <RevealHeading as="h2" id="entry-dates">Entry dates</RevealHeading>
       <p>We accept students on the first day of each session.</p>
       <div className={s.entryGrid}>
-        <table className={s.dates} tabIndex={0}><caption className="sr-only">2026 session dates</caption>
+        <EntryDatesTable><caption className="sr-only">2026 session dates</caption>
           <thead><tr>{["Session","Start","End"].map(t=><th scope="col" key={t}>{t}</th>)}</tr></thead>
           <tbody>{dates.map(([id,start,end])=><tr key={id}><th scope="row">{id}</th><td>{start}</td><td>{end}</td></tr>)}</tbody>
-        </table>
+        </EntryDatesTable>
         <div className={s.qualifications}><ul>{qualifications.map(text=><li key={text}>{text}</li>)}</ul>
           <p>Note that OHLA Virtual Campus provides instruction through the Open Hearts Learning Abroad program. Courses offered by OHLA Virtual Campus are not accredited by CEA.</p>
         </div>

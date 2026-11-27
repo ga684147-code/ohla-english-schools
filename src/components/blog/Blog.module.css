@@ -325,7 +325,7 @@
 .cta {
   position: relative;
   overflow: hidden;
-  min-height: clamp(390px, 26.84vw, 515px);
+  min-height: clamp(290px, 22vw, 420px);
   background: #1d2251;
   color: #fff;
 }
@@ -362,7 +362,7 @@
   width: 70.52%;
   max-width: 1354px;
   margin: auto;
-  padding-block: clamp(75px, 7.76vw, 149px) 60px;
+  padding-block: clamp(42px, 4.5vw, 86px);
 }
 .ctaCopy h2 {
   color: #fff;
@@ -655,11 +655,11 @@
     margin: 0 0 20px;
   }
   .cta {
-    min-height: 620px;
+    min-height: 0;
   }
   .ctaCopy {
     width: calc(100% - 50px);
-    padding: 55px 0 280px;
+    padding: 32px 0 clamp(142px, 39vw, 210px);
   }
   .ctaCopy h2 {
     font-size: 42px;
@@ -701,5 +701,17 @@
   }
   .card:hover .cardPhoto img {
     transform: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .listingInner,
+  .ctaCopy {
+    width: var(--desktop-content-width);
+    max-width: none;
+  }
+
+  .listingHeader {
+    padding-inline: 0;
   }
 }

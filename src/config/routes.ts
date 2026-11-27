@@ -11,9 +11,9 @@ export const routes = {
   about: "/about",
   contact: "/contact",
   levelTest: "/english-level-test",
-  apply: "/apply",
+  apply: "/contact#contact-form",
   privacy: "/privacy-policy",
-  whatsapp: "/contact?channel=whatsapp",
+  whatsapp: "https://bit.ly/37A5BWq",
   generalEnglish: "/programs/english/general",
   academicEnglish: "/programs/english/academic",
   semiIntensive: "/programs/english/semi-intensive",
@@ -41,15 +41,19 @@ export const routes = {
   studentAccommodation: "/international-students/accommodation",
   studentServices: "/international-students/student-services",
 } as const;
+export const englishTestUrl = "https://www.classmarker.com/online-test/start/user-info/?quiz=ddr644a715424b27";
+
 const implementedPages = new Set<string>([
+  routes.levelTest, routes.universityPartners, routes.westcliff, routes.higherEducation, routes.universityAdmission,
+  routes.generalEnglish, routes.academicEnglish, routes.intensiveEnglish, routes.semiIntensive,
   routes.youthMiami, routes.youthOrlando, routes.youthAccommodation, routes.youthEnrollment,
   routes.onlinePathway, routes.privateLessons, routes.groupClasses, routes.businessEnglish, routes.examPreparation,
-  routes.internationalStudents, routes.f1Students, routes.f1Transfer, routes.visaI20, routes.studentAccommodation,
+  routes.internationalStudents, routes.f1Students, routes.f1Transfer, routes.visaI20, routes.studentAccommodation, routes.studentServices,
 ]);
 
 export const futurePages: Record<string, string> = Object.fromEntries(
   Object.entries(routes)
-    .filter(([key, path]) => key !== "home" && key !== "whatsapp" && !implementedPages.has(path))
+    .filter(([key, path]) => key !== "home" && key !== "whatsapp" && key !== "apply" && !implementedPages.has(path))
     .map(([key, path]) => [
       path,
       key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase()),

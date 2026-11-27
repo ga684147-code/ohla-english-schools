@@ -1,0 +1,32 @@
+.page { color:#1d2251; }
+.hero { position:relative; isolation:isolate; min-height:clamp(540px,52vw,1005px); text-align:center; padding-top:clamp(160px,11vw,215px); color:white; }
+.hero img { z-index:-1; }
+.hero h1 { color:inherit; font-size:clamp(48px,4.7vw,90px); max-width:9em; margin:auto; line-height:.95; }
+.content { width:var(--desktop-content-width,88%); margin:clamp(50px,5vw,100px) auto; }
+.logo { display:block; width:240px; height:auto; margin:0 auto 45px; }
+.intro { display:grid; grid-template-columns:1fr 1.35fr; gap:7%; align-items:center; }
+.intro h2 { font-size:clamp(34px,3vw,58px); line-height:1; }
+.intro p + p { margin-top:1em; }
+.detail { display:grid; grid-template-columns:1fr 1fr; border:1px solid #d4dbe8; border-radius:15px; overflow:hidden; }
+.detail > div:first-child { padding:clamp(25px,4vw,75px); }
+.detail h2 { margin-bottom:1em; }
+.detail h3 { margin:1em 0 .5em; }
+.photo { position:relative; min-height:350px; }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:clamp(24px,4vw,70px); background:#1d2251; color:white; border-radius:15px; }
+.cards article { border:1px solid #ffffff30; padding:24px; border-radius:12px; }
+.cards h2 { font-size:21px; color:inherit; margin-bottom:1em; }
+@media(max-width:760px){.intro,.detail,.cards{grid-template-columns:1fr}.hero{padding-top:180px}.intro{gap:25px}.photo{min-height:290px}}
+.programHeading { text-align:center; text-transform:uppercase; margin-bottom:40px; }
+.tabs { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:20px; }
+.tabs button { border:0; border-bottom:3px solid transparent; padding:18px 8px; background:white; color:#6c6e87; font:inherit; text-align:left; cursor:pointer; }
+.tabs button[aria-selected="true"] { color:#1d2251; border-bottom-color:#b91e23; }
+.programPanel { display:grid; grid-template-columns:1fr 1fr; gap:5%; padding:clamp(24px,4vw,75px); color:white; background:#1d2251; border-radius:15px; }
+.programPanel h3 { color:inherit; font-size:24px; margin-bottom:20px; }
+.programPanel p { font-size:16px; line-height:1.5; }
+.programCards { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0; list-style:none; margin:24px 0; }
+.programCards li { border-radius:12px; padding:20px; color:#191919; background:white; font-size:16px; }
+@media(max-width:760px){.tabs{grid-template-columns:1fr 1fr;gap:8px}.programPanel{grid-template-columns:1fr}.programPanel .photo{margin-bottom:25px}.programCards li{padding:14px}}
+.cards { grid-template-columns:1.2fr repeat(3,1fr); align-items:center; }
+.ohlaLogo { width:100%; height:auto; }
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}.ohlaLogo{max-width:200px;justify-self:center}}
+@media(max-width:540px){.cards{grid-template-columns:1fr}}

@@ -257,3 +257,11 @@
   .benefits li:nth-child(3) { padding-bottom: 58cqw; }
   .benefits p { width: 64%; }
 }
+
+@media (min-width: 1200px) {
+  .highlights,
+  .partners,
+  .contact {
+    width: var(--desktop-content-width);
+  }
+}

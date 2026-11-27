@@ -139,3 +139,12 @@
   .why[data-orbit] .stage { margin-top: var(--stage-gap); }
   .why[data-orbit] .dial { top: calc(var(--height) + var(--dial-gap)); }
 }
+
+@media (min-width: 1200px) {
+  .facts,
+  .why:not([data-orbit]) .benefits,
+  .schedule,
+  .contact {
+    width: var(--desktop-content-width);
+  }
+}

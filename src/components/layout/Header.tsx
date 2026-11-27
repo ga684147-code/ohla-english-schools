@@ -18,6 +18,7 @@ export function Header() {
   const [mobile, setMobile] = useState(false),
     [active, setActive] = useState<string | null>(null);
   const root = useRef<HTMLElement>(null);
+  const openedByHover = useRef(false);
   const triggerRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   useEffect(() => {
     function dismiss(e: PointerEvent) {
@@ -114,8 +115,10 @@ export function Header() {
             key={item.label}
             className={`nav-item ${isCurrent(item.href) || item.children?.some((child) => isCurrent(child.href)) ? "is-current" : ""}`}
             onMouseEnter={() => {
-              if (window.matchMedia("(min-width:1200px)").matches)
+              if (window.matchMedia("(min-width:1200px) and (hover:hover)").matches && item.label !== active) {
+                openedByHover.current = Boolean(item.panel);
                 setActive(item.panel ? item.label : null);
+              }
             }}
           >
             {item.panel ? (
@@ -126,12 +129,15 @@ export function Header() {
                 className="nav-trigger"
                 aria-expanded={active === item.label}
                 aria-controls={`dropdown-${index} mobile-dropdown-${index}`}
-                onClick={() =>
-                  setActive(active === item.label ? null : item.label)
-                }
+                onClick={() => {
+                  const hovered = openedByHover.current && window.matchMedia("(min-width:1200px) and (hover:hover)").matches;
+                  openedByHover.current = false;
+                  setActive(active === item.label && !hovered ? null : item.label);
+                }}
                 onKeyDown={(e) => {
                   if (e.key === "ArrowDown" || e.key === "ArrowUp") {
                     e.preventDefault();
+                    openedByHover.current = false;
                     setActive(item.label);
                     focusPanel(index, e.key === "ArrowUp");
                   }

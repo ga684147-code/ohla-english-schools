@@ -990,7 +990,7 @@ button {
 }
 .contact-cta {
   position: relative;
-  min-height: clamp(390px, 26.84vw, 515px);
+  min-height: clamp(290px, 22vw, 420px);
   background: #1d2251;
   overflow: hidden;
   color: #fff;
@@ -1029,8 +1029,7 @@ button {
   position: relative;
   z-index: 3;
   margin-left: 10.7%;
-  padding-top: 7.7%;
-  padding-bottom: 4.8%;
+  padding-block: clamp(42px, 4.5vw, 86px);
   width: 39%;
 }
 .contact-copy h2 {
@@ -1097,7 +1096,8 @@ button {
   max-width: 22px;
 }
 .footer-top > .button {
-  min-width: clamp(270px, 19.1vw, 367px);
+  min-height: 48px;
+  min-width: clamp(180px, 16vw, 265px);
   text-transform: none;
 }
 .footer-grid {
@@ -2022,7 +2022,7 @@ button {
     min-width: 260px;
   }
   .contact-cta {
-    min-height: 620px;
+    min-height: 0;
   }
   .contact-cta:before {
     width: 100%;
@@ -2046,8 +2046,8 @@ button {
   }
   .contact-copy {
     margin-left: 25px;
-    padding-top: 55px;
-    padding-bottom: 280px;
+    padding-top: 32px;
+    padding-bottom: clamp(142px, 39vw, 210px);
     width: calc(100% - 50px);
   }
   .contact-copy h2 {
@@ -2093,7 +2093,7 @@ button {
     height: 39px;
   }
   .footer-top > .button {
-    min-width: 265px;
+    min-width: min(100%, 205px);
     font-size: 14px;
   }
   .footer-grid {
@@ -2413,5 +2413,31 @@ button {
   .virtual-copy h2[data-revealing] .reveal-word {
     background-image: linear-gradient(90deg, #9b1c20, #ce3035);
     background-clip: text;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --desktop-gutter: 97.66px;
+    --desktop-content-width: calc(100% - 2 * var(--desktop-gutter));
+  }
+
+  .wide-container,
+  .why-ohla,
+  .testimonial-inner,
+  .articles-inner,
+  .footer-inner {
+    width: var(--desktop-content-width);
+    max-width: none;
+    margin-inline: auto;
+  }
+
+  .international {
+    max-width: none;
+  }
+
+  .international-copy,
+  .contact-copy {
+    margin-inline-start: var(--desktop-gutter);
   }
 }
