@@ -1,0 +1,30 @@
+.banner { position:relative;isolation:isolate;overflow:hidden;width:100%;aspect-ratio:1920/515.338;min-height:360px;color:white;background:#1d2251; }
+.desktopArt { position:absolute;inset:0;z-index:-1; }
+.desktopArt img { object-fit:fill; }
+.mobileArt { display:none; }
+.copy { position:relative;width:39%;max-width:750px;margin-left:10.74%;padding-block:clamp(78px,8.05vw,155px) clamp(50px,4.94vw,95px); }
+.copy h2 { font:700 clamp(30px,2.344vw,45px)/1 Manrope,Arial,sans-serif;letter-spacing:-.04em;color:white;max-width:678px; }
+.copy p { font:400 clamp(16px,1.042vw,20px)/1.51 Manrope,Arial,sans-serif;max-width:515px;margin:clamp(20px,1.6vw,31px) 0 clamp(24px,1.51vw,29px); }
+.actions { display:flex;gap:clamp(10px,.75vw,15px); }
+.actions :global(.button) { width:50%;min-width:0;min-height:clamp(46px,3.28vw,63px);padding:10px 15px;font-size:clamp(13px,1.05vw,20px);text-transform:uppercase;white-space:nowrap; }
+.actions .advisor { border-color:#c2c1c185;color:white; }
+.actions .advisor svg { color:white; }
+.actions .whatsapp { color:#1d2251;background:linear-gradient(90deg,#c0e951,#3ced51); }
+@media(max-width:1100px) and (min-width:761px){
+ .copy{width:49%;margin-left:6%;padding-block:70px 50px}
+ .copy h2{font-size:32px}
+ .actions :global(.button){font-size:13px;padding-inline:10px}
+}
+@media(max-width:760px){
+ .banner { aspect-ratio:500/642;min-height:0; }
+ .desktopArt { display:none; }
+ .mobileArt { display:block;position:absolute;inset:0;z-index:-1; }
+ .city { position:absolute;left:0;bottom:0;width:100%;height:auto; }
+ .students { position:absolute;left:0;bottom:.3%;width:100%;height:auto; }
+ .copy { width:70%;max-width:none;margin:0 auto;padding:8% 0 47.5%; }
+ .copy h2 { font-size:clamp(30px,9vw,54px);line-height:1; }
+ .copy p { font-size:clamp(16px,4vw,24px);line-height:1.51;max-width:none;margin:3.5% 0 7%; }
+ .actions { flex-direction:column;gap:8px;width:105%;margin-left:-2.5%; }
+ .actions :global(.button) { width:100%;font-size:clamp(14px,4vw,24px);min-height:clamp(46px,12.6vw,76px);padding:10px 15px; }
+ .whatsapp { order:-1; }
+}

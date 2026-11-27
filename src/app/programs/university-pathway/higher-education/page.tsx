@@ -26,6 +26,6 @@ export default function HigherEducation() {
     <section className={s.section}><div className={s.heading}><p>How to get started</p><RevealHeading as="h2">Your path in three steps</RevealHeading></div>
       <ol className={s.steps}>{[["Choosing a university","Share your academic goals with our team."],["Submit your application","Select the program and submit your documents."],["Plan your university path","Get guidance on the next steps."]].map(([title,text])=><li key={title}><h3>{title}</h3><p>{text}</p></li>)}</ol>
     </section>
-    <BlogCTA heading="Start building your academic future." buttonLabel="Contact us" href={routes.apply} /><VirtualCampusTab />
+    <BlogCTA href={routes.apply} /><VirtualCampusTab />
   </main>;
 }

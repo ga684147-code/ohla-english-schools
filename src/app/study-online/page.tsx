@@ -43,7 +43,7 @@ export default function StudyOnlinePage() {
             <p>{text}</p>
           </li>
         ))}</CardOrbit>
-      <BlogCTA heading="Contact us for promotional pricing." buttonLabel="Check prices now" />
+      <BlogCTA />
     </main>
   );
 }

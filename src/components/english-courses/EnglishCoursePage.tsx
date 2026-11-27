@@ -80,7 +80,7 @@ export function EnglishCoursePage({ course }: { course: EnglishCourse }) {
         <Button variant="outline" href={routes.apply}>Contact us</Button>
       </div>
     </section>
-    {!schedule && <><CourseFees academic={course.image === "academic"} /><BlogCTA heading={course.image === "academic" ? "Contact us for promotional prices." : "Contact us for promotional pricing."} buttonLabel={course.image === "academic" ? "Consult now" : "Inquire now"} href={routes.apply} /></>}
+    {!schedule && <><CourseFees academic={course.image === "academic"} /><BlogCTA href={routes.apply} /></>}
     <VirtualCampusTab />
   </main>;
 }

@@ -42,7 +42,7 @@ export default async function CampusPage(props: PageProps) {
         <ul>{campus.facilities.map(([label, Icon]) => <li key={label}><Icon aria-hidden="true" />{label}</li>)}</ul>
       </div>
     </section>
-    <BlogCTA heading={campus.image === "miami" ? undefined : "Contact us for promotional pricing."} buttonLabel={campus.inquiry} />
+    <BlogCTA />
     <CampusCards related items={campuses.filter(other => other !== campus)} buttonLabel={campus.more} />
     <VirtualCampusTab />
   </main>;

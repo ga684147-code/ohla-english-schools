@@ -21,6 +21,6 @@ export default function Admission() {
       <ol>{["Study English at OHLA","Reach the required English level","Apply to a university","Receive admission","Start your university journey"].map(step=><li key={step}>{step}</li>)}</ol></div></div>
     </section>
     <section className={s.direct}><Photo name="pathway/admission-pathway" alt="" /><div><RevealHeading as="h2">Looking for a direct pathway to university?</RevealHeading><p>OHLA students may qualify for admission opportunities at partner institutions after reaching the required English level.</p><Button href={routes.universityPathway}>Explore University Pathway</Button></div></section>
-    <BlogCTA heading="Your university journey can start with OHLA." buttonLabel="Talk to an advisor" href={routes.apply} /><VirtualCampusTab />
+    <BlogCTA href={routes.apply} /><VirtualCampusTab />
   </main>;
 }

@@ -14,7 +14,7 @@ export type Feature = [icon: string, text: string];
 export function OnlinePage({ children, promo, href }: { children: ReactNode; promo?: string; href?: string }) {
   return <main id="main" className={s.page}>
     {children}
-    {promo && <BlogCTA heading={promo} buttonLabel="Inquire now" href={href} />}
+    {promo && <BlogCTA href={href} />}
     <VirtualCampusTab />
   </main>;
 }

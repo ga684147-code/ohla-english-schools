@@ -139,7 +139,7 @@ export default function ContactPage() {
           ))}
         </section>
       </div>
-      <BlogCTA buttonLabel="Contact us now" href="#contact-form" />
+      <BlogCTA href="#contact-form" />
       <a className="virtual-tab" href={routes.studyOnline}>
         Virtual Campus
       </a>
