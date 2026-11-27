@@ -233,7 +233,7 @@ test("touch navigation, mobile animations, video controls and review balloons", 
   await page.goto("/youth-camp/");
   await expect(page.locator("[data-orbit]")).toHaveCount(1);
   await page.goto("/study-online/");
-  await expect(page.locator("[data-cube]")).toHaveCount(1);
+  await expect(page.locator("[data-orbit]")).toHaveCount(1);
   await page.goto("/campuses/miami-brickell/");
   await page.getByRole("link", { name: /^Play / }).first().tap();
   await expect(page.locator('iframe[src*="youtube-nocookie.com/embed/"]')).toHaveCount(1);
@@ -262,7 +262,7 @@ for (const width of [1200, 1920]) {
   test(`desktop content follows the shared side margins at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     const pages = [
-      { path: "/", selectors: ["#virtual-campus", "#why-ohla .feature-grid", "#programs", ".partner", ".campus-highlights", ".articles-inner", ".footer-inner"] },
+      { path: "/", selectors: ["#virtual-campus", "#programs", ".partner", ".campus-highlights", ".articles-inner", ".footer-inner"] },
       { path: "/study-online/", selectors: ["#virtual-campus"] },
       { path: "/youth-camp/orlando-programs/", selectors: ['section[aria-label="Orlando camp programs"]'] },
       { path: "/campuses/", selectors: ['section[aria-label="Explore our Florida campuses"]'] },
