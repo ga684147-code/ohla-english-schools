@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { BlogCTA } from "@/components/blog/BlogCTA";
 import { VirtualCampus } from "@/components/home/VirtualCampus";
 import { routes } from "@/config/routes";
-import { BenefitCube } from "./BenefitCube";
+import { CardOrbit } from "@/components/ui/CardOrbit";
 import styles from "./Campus.module.css";
 
 export const metadata: Metadata = {
@@ -36,12 +36,13 @@ export default function StudyOnlinePage() {
         </div>
       </section>
       <VirtualCampus videoSrc="/videos/virtual-campus.mp4" showActions={false} />
-      <BenefitCube>{benefits.map(([icon, text]) => (
+      <CardOrbit title="OHLA Virtual Campus is not your average online English course!" titleId="benefits-title"
+        subtitle="See why:" className={styles.benefits} subtitleClassName={styles.intro}>{benefits.map(([icon, text]) => (
           <li key={icon}>
             <Image src={`/images/virtual-campus/${icon}.webp`} width={49} height={49} alt="" />
             <p>{text}</p>
           </li>
-        ))}</BenefitCube>
+        ))}</CardOrbit>
       <BlogCTA heading="Contact us for promotional pricing." buttonLabel="Check prices now" />
     </main>
   );

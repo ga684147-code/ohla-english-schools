@@ -5,7 +5,7 @@ export const programs = [
     description:
       "Develop your reading, writing, listening, speaking, vocabulary, and grammar skills.",
     cta: "Discover the programs",
-    href: routes.englishPrograms,
+    href: routes.generalEnglish,
     image: "program-english",
   },
   {
@@ -20,7 +20,7 @@ export const programs = [
     description:
       "Improve your English and advance to partner universities and colleges in the United States.",
     cta: "Discover University Pathway",
-    href: routes.universityPathway,
+    href: routes.higherEducation,
     image: "program-pathway",
   },
   {
@@ -46,12 +46,6 @@ export const features = [
     icon: "165-15149",
     width: 29,
     height: 30,
-  },
-  { title: "CEA and SEVIS", wide: true, icon: "165-15140", width: 30, height: 29 },
-  {
-    wide: true,
-    title: "OHLA is authorized under Federal law to enroll nonimmigrant alien students",
-    icon: "165-15149", width:29, height:30,
   },
 ];
 export const countries = [
